@@ -1,0 +1,33 @@
+@import '~src/assets/style/colors';
+@import '~src/assets/style/layout';
+
+.center { @extend .center }
+
+.shop {
+	padding: 6px 10px;
+	span { display: block; padding-top: 6px; }
+	button { margin-top: 8px; }
+	.title {
+		padding: 10px 0px;
+		i, span {
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 18pt;
+		}
+		i {
+			color: $medium;
+			margin-right: 10px;
+		}
+		border-bottom: 1px solid $light;
+	}
+	.sells {
+		padding-top: 10px;
+	}
+	.propietor {
+		color: $medium;
+	}
+	.adress {
+		color: $medium;
+		font-style: italic;
+	}
+}

@@ -1,0 +1,39 @@
+@import '~src/assets/style/colors';
+@import '~src/assets/style/layout';
+
+.center { @extend .center }
+
+#title {
+	display: block;
+	background-color: $dark;
+	color: white;
+	padding: 20px;
+	@extend .text-and-icon;
+	#name, #subtitle { display: block; }
+	i {
+		font-size: 40pt;
+		color: $light;
+	}
+	#name {
+		font-size: 18pt;
+	}
+	#subtitle {
+		color: $light;
+		font-size: 10pt;
+	}
+}
+
+#text {
+	padding: 10px;
+	table {
+		min-width: 20px;
+		max-width: 100%;
+		margin: auto;
+	}
+}
+
+#footer {
+	button {
+		text-transform: capitalize;
+	}
+}

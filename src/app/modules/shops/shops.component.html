@@ -1,0 +1,22 @@
+<mat-spinner
+	*ngIf="!(shops$ | async)"
+	class="center"
+	mode="indeterminate">
+</mat-spinner>
+
+<div
+	class="shop"
+	*ngFor="let shop of shops$ | async">
+	<span class="title">
+		<i class="material-icons">{{ shop.icon }}</i>
+		<span>{{ shop.name }}</span>
+	</span>
+	<span class="sells">
+		<b>Sells:</b> {{ shop.description }}
+	</span>
+	<span class="propietor">{{ shop.propietor }}</span>
+	<span class="adress">{{ shop.adress }}</span>
+	<button
+		routerLink="/shops/{{shop.id}}"
+		mat-flat-button color="primary">Catalog</button>
+</div>

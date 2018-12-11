@@ -1,0 +1,7 @@
+node_modules/
+.editorconfig
+.vscode/
+package-lock.json
+.gitignore.swp
+data/
+src/environments/environment.ts

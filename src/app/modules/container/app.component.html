@@ -1,0 +1,51 @@
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+	<mat-toolbar color="primary" class="toolbar">
+		<button mat-icon-button (click)="snav.toggle()">
+			<mat-icon>menu</mat-icon>
+		</button>
+		<h1 class="app-name">Waterdep, Midgard</h1>
+	</mat-toolbar>
+
+	<mat-sidenav-container class="sidenav-container"
+			[style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+		<mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+			(click)="snav.toggle()"
+			[fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+			<mat-nav-list>
+				<a class="nav-item" routerLink="/">
+					<i class="material-icons">account_box</i>
+					<span>Balance</span>
+				</a>
+				<a class="nav-item" routerLink="corporate-account">
+					<i class="material-icons">account_balance</i>
+					<span>Cuenta corporativa</span>
+				</a>
+				<a class="nav-item" routerLink="contacts">
+					<i class="material-icons">contacts</i>
+					<span>Contactos</span>
+				</a>
+				<a class="nav-item" routerLink="maps">
+					<i class="material-icons">terrain</i>
+					<span>Mapas</span>
+				</a>
+				<a class="nav-item" routerLink="things-to-do">
+					<i class="material-icons">directions_bike</i>
+					<span>Cosas que hacer</span>
+				</a>
+				<a class="nav-item" routerLink="shops">
+					<i class="material-icons">credit_card</i>
+					<span>Tiendas</span>
+				</a>
+				<a class="nav-item" routerLink="quests">
+					<i class="material-icons">calendar_today</i>
+					<span>Quests y XP</span>
+				</a>
+			</mat-nav-list>
+		</mat-sidenav>
+
+		<mat-sidenav-content>
+			<router-outlet></router-outlet>
+		</mat-sidenav-content>
+	</mat-sidenav-container>
+</div>
+

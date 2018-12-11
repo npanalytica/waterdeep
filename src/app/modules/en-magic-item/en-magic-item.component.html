@@ -1,0 +1,13 @@
+<div id="title">
+	<div id="name">{{ item.name }}</div>
+	<div id="subtitle">{{ item.rarity }}</div>
+</div>
+<div id="text" [innerHTML]="item.description"></div>
+<div id="footer">
+	<button
+		*ngFor="let sold_by of item.sold_by"
+		routerLink="/shops/{{sold_by}}"
+		mat-flat-button color="primary">
+		{{ sold_by | toText}}
+	</button>
+</div>
