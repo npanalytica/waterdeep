@@ -1,0 +1,65 @@
+@import '~src/assets/style/colors';
+@import '~src/assets/style/layout';
+@import '~src/assets/style/mixins';
+
+.center { @extend .center }
+
+#classes {
+	background-color: $dark;
+	width: 100%;
+}
+
+.class {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 12.5%;
+	text-align: center;
+	padding: 10px;
+	img {
+		height: 28px;
+	}
+	&.active {
+		background-color: $pink;
+	}
+}
+
+#filters {
+	padding: 20px;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.filter-input {
+	padding: 6px;
+}
+
+#levels {
+	overflow: hidden;
+}
+
+.level-name {
+	font-weight: bold;
+	padding: 20px;
+	color: $dark;
+	text-align: center;
+	border-bottom: 1px solid $light;
+}
+
+
+.spell {
+	cursor: pointer;
+	border-bottom: 1px solid $light;
+	.spell-icon, .spell-name {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.spell-icon {
+		text-align: center;
+		padding: 8px;
+		padding-top: 10px;
+		margin-right: 6px;
+		img { height: 26px; }
+	}
+}

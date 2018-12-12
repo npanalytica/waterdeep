@@ -5,12 +5,16 @@ import {
 	MatButtonModule,
 	MatCardModule,
 	MatCheckboxModule,
+	MatFormFieldModule,
 	MatIconModule,
 	MatListModule,
 	MatSidenavModule,
 	MatToolbarModule,
 	MatProgressSpinnerModule,
-	MatTableModule
+	MatTableModule,
+	MatInputModule,
+	MatAutocompleteModule,
+	MatSelectModule
 } from '@angular/material'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './modules/container/app.component';
@@ -26,6 +30,9 @@ import { ShopComponent } from './modules/shop/shop.component';
 import { IconRarityComponent } from './shared/icon-rarity/icon-rarity.component';
 import { EnMagicItemsComponent } from './modules/en-magic-items/en-magic-items.component';
 import { EnMagicItemComponent } from './modules/en-magic-item/en-magic-item.component';
+import { EnSpellsComponent } from './modules/en-spells/en-spells.component';
+import { EnSpellComponent } from './modules/en-spell/en-spell.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -39,21 +46,29 @@ import { EnMagicItemComponent } from './modules/en-magic-item/en-magic-item.comp
 		ShopComponent,
 		IconRarityComponent,
 		EnMagicItemsComponent,
-		EnMagicItemComponent
+		EnMagicItemComponent,
+		EnSpellsComponent,
+		EnSpellComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
+		FormsModule,
+		ReactiveFormsModule,
 		// Firebase
 		AngularFireModule.initializeApp(environment.firebase),
 		AngularFireDatabaseModule,
 		// Material imports
+		MatAutocompleteModule,
 		MatButtonModule,
 		MatCardModule,
 		MatCheckboxModule,
+		MatFormFieldModule,
 		MatIconModule,
+		MatInputModule,
 		MatListModule,
+		MatSelectModule,
 		MatSidenavModule,
 		MatProgressSpinnerModule,
 		MatTableModule,
@@ -95,6 +110,14 @@ import { EnMagicItemComponent } from './modules/en-magic-item/en-magic-item.comp
 				{
 					path: 'encyclopaedia/magic-items/:id',
 					component: EnMagicItemComponent
+				},
+				{
+					path: 'encyclopaedia/spells',
+					component: EnSpellsComponent
+				},
+				{
+					path: 'encyclopaedia/spells/:id',
+					component: EnSpellComponent
 				}
 			]
 		)

@@ -4,11 +4,16 @@
 			<mat-icon>menu</mat-icon>
 		</button>
 		<h1 class="app-name">Waterdep, Midgard</h1>
+		<div style="flex: 1 1 auto;"></div>
+		<button mat-icon-button (click)="e_snav.toggle()">
+			<mat-icon>class</mat-icon>
+		</button>
 	</mat-toolbar>
 
 	<mat-sidenav-container class="sidenav-container"
 			[style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-		<mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+		
+		<mat-sidenav #snav mode="over" position="start"
 			(click)="snav.toggle()"
 			[fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
 			<mat-nav-list>
@@ -39,6 +44,18 @@
 				<a class="nav-item" routerLink="quests">
 					<i class="material-icons">calendar_today</i>
 					<span>Quests y XP</span>
+				</a>
+			</mat-nav-list>
+		</mat-sidenav>
+
+
+		<mat-sidenav #e_snav mode="over" position="end"
+			(click)="e_snav.toggle()"
+			[fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+			<mat-nav-list>
+				<a class="nav-item" routerLink="/encyclopaedia/spells">
+					<i class="material-icons">offline_bolt</i>
+					<span>Spells</span>
 				</a>
 			</mat-nav-list>
 		</mat-sidenav>
