@@ -5,6 +5,9 @@
 		</button>
 		<h1 class="app-name">Waterdep, Midgard</h1>
 		<div style="flex: 1 1 auto;"></div>
+		<button mat-icon-button>
+			<mat-icon>search</mat-icon>
+		</button>
 		<button mat-icon-button (click)="e_snav.toggle()">
 			<mat-icon>class</mat-icon>
 		</button>
@@ -56,6 +59,14 @@
 				<a class="nav-item" routerLink="/encyclopaedia/spells">
 					<i class="material-icons">offline_bolt</i>
 					<span>Spells</span>
+				</a>
+				<a class="nav-item" routerLink="/encyclopaedia/magic-items">
+					<i class="material-icons">offline_bolt</i>
+					<span>Items mágicos</span>
+				</a>
+				<a class="nav-item" routerLink="/encyclopaedia/weapons">
+					<i class="material-icons">polymer</i>
+					<span>Armas</span>
 				</a>
 			</mat-nav-list>
 		</mat-sidenav>

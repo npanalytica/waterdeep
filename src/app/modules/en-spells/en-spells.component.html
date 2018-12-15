@@ -4,51 +4,14 @@
 	mode="indeterminate">
 </mat-spinner>
 
-<!--<div id="filters" *ngIf="loaded">
-	<mat-form-field class="full-width">
-		<input
-			type="text"
-			placeholder="Buscar spell..."
-			class="filter-input"
-			matInput
-			[matAutocomplete]="auto"
-			[formControl]="control"/>
-	</mat-form-field>
-	
-	<mat-form-field class="full-width">
-		<mat-select
-			placeholder="Clase..."
-			(selectionChange)="filterSpells()"
-			[(value)]="selectedClass">
-			<mat-option
-				*ngFor="let dndClass of classes"
-				[value]="dndClass">
-				{{ dndClass }}
-			</mat-option>
-		</mat-select>
-	</mat-form-field>
-</div>-->
-
 <div id="classes">
-	<div class="class"
+	<div class="option"
 		[ngClass]="{'active': selectedClass == class }"
 		(click)="updateSelectedClass(class)"
 		*ngFor="let class of classes">
 		<img class="img" src="assets/icons/{{class}}.png"/>
 	</div>
 </div>
-
-<mat-autocomplete #auto="matAutocomplete" class="full-width">
-	<mat-option
-		(click)="goToSpell(spell)"
-		*ngFor="let spell of filteredSpells | async"
-		[value]="spell.name">
-		{{ spell.name }}
-	</mat-option>
-</mat-autocomplete>
-
-
-
 
 <div id="levels" *ngFor="let level of levels">
 	<div class="level-name">{{ level.name }}</div>

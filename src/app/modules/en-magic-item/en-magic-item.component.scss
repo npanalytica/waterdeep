@@ -1,35 +1,31 @@
 @import '~src/assets/style/colors';
 @import '~src/assets/style/layout';
+@import '~src/assets/style/mixins';
 
 .center { @extend .center }
 
 #title {
-	display: block;
-	background-color: $dark;
-	color: white;
-	padding: 20px;
-	@extend .text-and-icon;
-	#name, #subtitle { display: block; }
-	i {
-		font-size: 40pt;
-		color: $light;
-	}
-	#name {
-		font-size: 18pt;
-	}
-	#subtitle {
-		color: $light;
-		font-size: 10pt;
-	}
+	@include header(16pt);
 }
 
-#text {
+:host::ng-deep #text {
+	p:first-child {
+		text-align: center;
+		font-weight: bold;
+	}
 	padding: 10px;
 	table {
 		min-width: 20px;
 		max-width: 100%;
 		margin: auto;
+		border-collapse: collapse;
 	}
+	table, th, td {
+		border: 1px solid $light;
+	}
+	td, th { padding: 4px; }
+	td { &:first-child { text-align: center; } }
+	tr:nth-child(even) { background-color: lighten($light, 7); }
 }
 
 #footer {

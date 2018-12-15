@@ -1,0 +1,13 @@
+@import '~src/assets/style/colors';
+@import '~src/assets/style/layout';
+@import '~src/assets/style/mixins';
+
+.center { @extend .center }
+
+.weapons-table {
+	font-size: 10pt;
+}
+
+.icon {
+	height: 20px;
+}

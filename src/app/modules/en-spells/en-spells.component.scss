@@ -4,24 +4,8 @@
 
 .center { @extend .center }
 
-#classes {
-	background-color: $dark;
-	width: 100%;
-}
+#classes { @include selector(8); }
 
-.class {
-	display: inline-block;
-	box-sizing: border-box;
-	width: 12.5%;
-	text-align: center;
-	padding: 10px;
-	img {
-		height: 28px;
-	}
-	&.active {
-		background-color: $pink;
-	}
-}
 
 #filters {
 	padding: 20px;

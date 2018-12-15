@@ -1,3 +1,34 @@
-<p>
-  en-magic-items works!
-</p>
+<div *ngIf="(items$ | async) as items">
+
+		<div id="type-selector">
+				<div class="option"
+					[ngClass]="{'active': selectedType == type }"
+					(click)="toggleSelectedType(type)"
+					*ngFor="let type of itemTypes">
+					<img class="img" src="assets/icons/{{ type | toUnderscore }}.png"/>
+				</div>
+			</div>
+
+	<div id="rarity-selector">
+		<div class="option"
+			[ngClass]="{'active': selectedRarity == rarity.name }"
+			(click)="toggleSelectedRarity(rarity.name)"
+			*ngFor="let rarity of itemRarities">
+			<span
+				class="circle"
+				[ngStyle]="{'background-color': rarity.color}">
+				{{ rarity.alias }}
+			</span>
+		</div>
+	</div>
+
+	<div *ngFor="let item of items | filterMagicItems:{type: selectedType, rarity: selectedRarity}"
+		class="item"
+		routerLink="/encyclopaedia/magic-items/{{item.id}}">
+		<span class="rarity {{ item.rarity | toUnderscore }}">
+			<img class="img" src="assets/icons/{{ item.type | toUnderscore }}.png"/>
+			<span>{{ item.rarity }}</span>
+		</span>
+		{{ item.name }}
+	</div>
+</div>
