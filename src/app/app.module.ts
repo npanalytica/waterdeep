@@ -35,6 +35,9 @@ import { EnSpellComponent } from './modules/en-spell/en-spell.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnWeaponsComponent } from './modules/en-weapons/en-weapons.component';
 import { MagicItemsFilterPipe } from './modules/en-magic-items/en-magic-items.filter';
+import { EnCreaturesComponent } from './modules/en-creatures/en-creatures.component';
+import { EnCreatureComponent } from './modules/en-creature/en-creature.component';
+import { CreaturesFilterPipe } from './modules/en-creatures/en-creatures.filter';
 
 @NgModule({
 	declarations: [
@@ -46,6 +49,7 @@ import { MagicItemsFilterPipe } from './modules/en-magic-items/en-magic-items.fi
 		ToTextPipe,
 		ToUnderscorePipe,
 		DamageToCharPipe,
+		CreaturesFilterPipe,
 		MagicItemsFilterPipe,
 		// Components
 		ShopComponent,
@@ -54,7 +58,9 @@ import { MagicItemsFilterPipe } from './modules/en-magic-items/en-magic-items.fi
 		EnMagicItemComponent,
 		EnSpellsComponent,
 		EnSpellComponent,
-		EnWeaponsComponent
+		EnWeaponsComponent,
+		EnCreaturesComponent,
+		EnCreatureComponent
 	],
 	imports: [
 		BrowserModule,
@@ -132,6 +138,10 @@ import { MagicItemsFilterPipe } from './modules/en-magic-items/en-magic-items.fi
 				{
 					path: 'encyclopaedia/weapons',
 					component: EnWeaponsComponent
+				},
+				{
+					path: 'encyclopaedia/beastiary',
+					component: EnCreaturesComponent
 				}
 			]
 		)

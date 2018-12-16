@@ -1,0 +1,53 @@
+@import '~src/assets/style/colors';
+@import '~src/assets/style/layout';
+@import '~src/assets/style/mixins';
+
+#filter-selector {
+	span {
+		display: inline-block;
+		box-sizing: border-box;
+		width: 50%;
+		text-align: center;
+		padding: 10px;
+		color: darken($light, 15);
+		background-color: lighten($dark, 5);
+		font-weight: bold;
+	}
+	span.active {
+		background-color: $dark;
+		color: $light;
+	}
+}
+
+// Selectors
+#type-selector-6 { @include selector(6); }
+#type-selector-8 { @include selector(8); }
+#type-selector-7 { @include selector(7); }
+
+.creature {
+	cursor: pointer;
+	border-bottom: 1px solid $light;
+	.creature-icon, .creature-name, .creature-cr {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.creature-cr {
+		@include borderRadius(8px);
+		width: 30px;
+		font-size: 8pt;
+		font-weight: bold;
+		margin-right: 6px;
+		margin-left: 6px;
+		background-color: $primary;
+		color: $light;
+		text-align: center;
+		padding: 2px;
+	}
+	.creature-icon {
+		text-align: center;
+		padding: 8px;
+		padding-top: 10px;
+		margin-right: 6px;
+		img { height: 26px; }
+	}
+}

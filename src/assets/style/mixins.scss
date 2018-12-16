@@ -64,6 +64,7 @@
 		}
 		.circle {
 			@include borderRadius(28px);
+			background-color: $pink;
 			display: inline-block;
 			height: 28px;
 			width: 28px;

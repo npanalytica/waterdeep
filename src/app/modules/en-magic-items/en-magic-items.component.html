@@ -1,13 +1,13 @@
 <div *ngIf="(items$ | async) as items">
 
-		<div id="type-selector">
-				<div class="option"
-					[ngClass]="{'active': selectedType == type }"
-					(click)="toggleSelectedType(type)"
-					*ngFor="let type of itemTypes">
-					<img class="img" src="assets/icons/{{ type | toUnderscore }}.png"/>
-				</div>
-			</div>
+	<div id="type-selector">
+		<div class="option"
+			[ngClass]="{'active': selectedType == type }"
+			(click)="toggleSelectedType(type)"
+			*ngFor="let type of itemTypes">
+			<img class="img" src="assets/icons/{{ type | toUnderscore }}.png"/>
+		</div>
+	</div>
 
 	<div id="rarity-selector">
 		<div class="option"

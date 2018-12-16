@@ -1,0 +1,48 @@
+<div *ngIf="(creatures$ | async) as creatures">
+
+	<div id="filter-selector">
+		<span
+			(click)="filterView = 'types'"
+			[ngClass]="{'active': filterView == 'types'}">
+			Tipos
+		</span>
+		<span
+			(click)="filterView = 'cr'"
+			[ngClass]="{'active': filterView == 'cr'}">
+			CR
+		</span>
+	</div>
+	
+	<ng-container *ngIf="filterView == 'cr'">
+		<div id="type-selector-{{ cr_row.length }}" *ngFor="let cr_row of creaturesCR">
+			<div class="option"
+				[ngClass]="{'active': CRisSelected(cr) }"
+				(click)="toggleSelectedCRS(cr)"
+				*ngFor="let cr of cr_row">
+				<span class="circle"> {{ cr }} </span>
+			</div>
+		</div>
+	</ng-container>
+
+	<ng-container *ngIf="filterView == 'types'">
+		<div id="type-selector-{{ types.length }}" *ngFor="let types of creatureTypes">
+			<div class="option"
+				[ngClass]="{'active': selectedType == type }"
+				(click)="toggleSelectedType(type)"
+				*ngFor="let type of types">
+				<img class="img" src="assets/icons/creature-types/{{ type }}.png"/>
+			</div>
+		</div>
+	</ng-container>
+
+	<div *ngFor="let creature of creatures | arraify |
+		filterCreatures:{type: selectedType, crs: selectedCRS}" class="creature">
+		<span class="creature-cr">
+			{{ creature.challenge_rating }}
+		</span>
+		<span class="creature-icon">
+			<img class="img" src="assets/icons/creature-types/{{ creature.type }}_color.png"/>
+		</span>
+		<span class="creature-name">{{ creature.name }} </span>
+	</div>
+</div>
