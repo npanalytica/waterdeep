@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {  Observable } from 'rxjs';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { SpellsService } from 'src/app/services/spells.service'
 
 @Component({
 	selector: 'app-en-spell',
@@ -11,11 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 
 export class EnSpellComponent implements OnInit {
 	
-	spell$ : Observable<any>
+	spell : any
 
-	constructor(route : ActivatedRoute, db : AngularFireDatabase) {
+	constructor(route : ActivatedRoute, Spells : SpellsService) {
 		route.paramMap.subscribe(params => {
-			this.spell$ = db.object(`/spells/${params.get('id')}`).valueChanges()
+			this.spell = Spells.get(params.get('id'))
 		})
 	}
 	

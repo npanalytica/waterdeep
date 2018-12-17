@@ -1,0 +1,372 @@
+{
+  "weapon_battleaxe" : {
+    "damage" : "1d8 slashing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "axe",
+    "id" : "weapon_battleaxe",
+    "name" : "Battleaxe",
+    "price" : 10,
+    "properties" : "Versatile (1d10)",
+    "weight" : 4
+  },
+  "weapon_blowgun" : {
+    "damage" : "1 piercing",
+    "family" : "Martial Ranged Weapons",
+    "icon" : "ranged",
+    "id" : "weapon_blowgun",
+    "name" : "Blowgun",
+    "price" : 10,
+    "properties" : "Ammunition (range 25/100), loading",
+    "weight" : 1
+  },
+  "weapon_club" : {
+    "damage" : "1d4 bludgeoning",
+    "family" : "Simple Melee Weapons",
+    "icon" : "club",
+    "id" : "weapon_club",
+    "name" : "Club",
+    "price" : 0.1,
+    "properties" : "Light",
+    "weight" : 2
+  },
+  "weapon_dagger" : {
+    "damage" : "1d4 piercing",
+    "family" : "Simple Melee Weapons",
+    "icon" : "knife",
+    "id" : "weapon_dagger",
+    "name" : "Dagger",
+    "price" : 2,
+    "properties" : "Finesse, light, thrown (range 20/60)",
+    "weight" : 1
+  },
+  "weapon_dart" : {
+    "damage" : "1d4 piercing",
+    "family" : "Simple Ranged Weapons",
+    "icon" : "ranged",
+    "id" : "weapon_dart",
+    "name" : "Dart",
+    "price" : 0.05,
+    "properties" : "Finesse, thrown (range 20/60)",
+    "weight" : 0.25
+  },
+  "weapon_flail" : {
+    "damage" : "1d8 bludgeoning",
+    "family" : "Martial Melee Weapons",
+    "icon" : "club",
+    "id" : "weapon_flail",
+    "name" : "Flail",
+    "price" : 10,
+    "properties" : "—",
+    "weight" : 2
+  },
+  "weapon_glaive" : {
+    "damage" : "1d10 slashing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "spear",
+    "id" : "weapon_glaive",
+    "name" : "Glaive",
+    "price" : 20,
+    "properties" : "Heavy, reach, two-handed",
+    "weight" : 6
+  },
+  "weapon_greataxe" : {
+    "damage" : "1d12 slashing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "axe",
+    "id" : "weapon_greataxe",
+    "name" : "Greataxe",
+    "price" : 30,
+    "properties" : "Heavy, two-handed",
+    "weight" : 7
+  },
+  "weapon_greatclub" : {
+    "damage" : "1d8 bludgeoning",
+    "family" : "Simple Melee Weapons",
+    "icon" : "club",
+    "id" : "weapon_greatclub",
+    "name" : "Greatclub",
+    "price" : 0.2,
+    "properties" : "Two-handed",
+    "weight" : 10
+  },
+  "weapon_greatsword" : {
+    "damage" : "2d6 slashing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "sword",
+    "id" : "weapon_greatsword",
+    "name" : "Greatsword",
+    "price" : 50,
+    "properties" : "Heavy, two-handed",
+    "weight" : 6
+  },
+  "weapon_halberd" : {
+    "damage" : "1d10 slashing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "spear",
+    "id" : "weapon_halberd",
+    "name" : "Halberd",
+    "price" : 20,
+    "properties" : "Heavy, reach, two-handed",
+    "weight" : 6
+  },
+  "weapon_hand_crossbow" : {
+    "damage" : "1d6 piercing",
+    "family" : "Martial Ranged Weapons",
+    "icon" : "ranged",
+    "id" : "weapon_hand_crossbow",
+    "name" : "Hand Crossbow",
+    "price" : 75,
+    "properties" : "Ammunition (range 30/120), light, loading",
+    "weight" : 3
+  },
+  "weapon_handaxe" : {
+    "damage" : "1d6 slashing",
+    "family" : "Simple Melee Weapons",
+    "icon" : "axe",
+    "id" : "weapon_handaxe",
+    "name" : "Handaxe",
+    "price" : 5,
+    "properties" : "Light, thrown (range 20/60)",
+    "weight" : 2
+  },
+  "weapon_heavy_crossbow" : {
+    "damage" : "1d10 piercing",
+    "family" : "Martial Ranged Weapons",
+    "icon" : "ranged",
+    "id" : "weapon_heavy_crossbow",
+    "name" : "Heavy Crossbow",
+    "price" : 50,
+    "properties" : "Ammunition (range 100/400), heavy, loading, two-handed",
+    "weight" : 18
+  },
+  "weapon_javelin" : {
+    "damage" : "1d6 piercing",
+    "family" : "Simple Melee Weapons",
+    "icon" : "spear",
+    "id" : "weapon_javelin",
+    "name" : "Javelin",
+    "price" : 0.5,
+    "properties" : "Thrown (range 30/120)",
+    "weight" : 2
+  },
+  "weapon_lance" : {
+    "damage" : "1d12 piercing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "spear",
+    "id" : "weapon_lance",
+    "name" : "Lance",
+    "price" : 10,
+    "properties" : "Reach, special",
+    "weight" : 6
+  },
+  "weapon_light_crossbow" : {
+    "damage" : "1d8 piercing",
+    "family" : "Simple Ranged Weapons",
+    "icon" : "ranged",
+    "id" : "weapon_light_crossbow",
+    "name" : "Light Crossbow",
+    "price" : 25,
+    "properties" : "Ammunition (range 80/320), loading, two-handed",
+    "weight" : 5
+  },
+  "weapon_light_hammer" : {
+    "damage" : "1d4 bludgeoning",
+    "family" : "Simple Melee Weapons",
+    "icon" : "hammer",
+    "id" : "weapon_light_hammer",
+    "name" : "Light Hammer",
+    "price" : 2,
+    "properties" : "Light, thrown (range 20/60)",
+    "weight" : 2
+  },
+  "weapon_longbow" : {
+    "damage" : "1d8 piercing",
+    "family" : "Martial Ranged Weapons",
+    "icon" : "ranged",
+    "id" : "weapon_longbow",
+    "name" : "Longbow",
+    "price" : 50,
+    "properties" : "Ammunition (range 150/600), heavy, two-handed",
+    "weight" : 2
+  },
+  "weapon_longsword" : {
+    "damage" : "1d8 slashing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "sword",
+    "id" : "weapon_longsword",
+    "name" : "Longsword",
+    "price" : 15,
+    "properties" : "Versatile (1d10)",
+    "weight" : 3
+  },
+  "weapon_mace" : {
+    "damage" : "1d6 bludgeoning",
+    "family" : "Simple Melee Weapons",
+    "icon" : "hammer",
+    "id" : "weapon_mace",
+    "name" : "Mace",
+    "price" : 5,
+    "properties" : "—",
+    "weight" : 4
+  },
+  "weapon_maul" : {
+    "damage" : "2d6 bludgeoning",
+    "family" : "Martial Melee Weapons",
+    "icon" : "hammer",
+    "id" : "weapon_maul",
+    "name" : "Maul",
+    "price" : 10,
+    "properties" : "Heavy, two-handed",
+    "weight" : 10
+  },
+  "weapon_morningstar" : {
+    "damage" : "1d8 piercing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "club",
+    "id" : "weapon_morningstar",
+    "name" : "Morningstar",
+    "price" : 15,
+    "properties" : "—",
+    "weight" : 4
+  },
+  "weapon_net" : {
+    "damage" : "—",
+    "family" : "Martial Ranged Weapons",
+    "icon" : "net",
+    "id" : "weapon_net",
+    "name" : "Net",
+    "price" : 1,
+    "properties" : "Special, thrown (range 5/15)",
+    "weight" : 3
+  },
+  "weapon_pike" : {
+    "damage" : "1d10 piercing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "spear",
+    "id" : "weapon_pike",
+    "name" : "Pike",
+    "price" : 5,
+    "properties" : "Heavy, reach, two-handed",
+    "weight" : 18
+  },
+  "weapon_quarterstaff" : {
+    "damage" : "1d6 bludgeoning",
+    "family" : "Simple Melee Weapons",
+    "icon" : "spear",
+    "id" : "weapon_quarterstaff",
+    "name" : "Quarterstaff",
+    "price" : 0.2,
+    "properties" : "Versatile (1d8)",
+    "weight" : 4
+  },
+  "weapon_rapier" : {
+    "damage" : "1d8 piercing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "sword",
+    "id" : "weapon_rapier",
+    "name" : "Rapier",
+    "price" : 25,
+    "properties" : "Finesse",
+    "weight" : 2
+  },
+  "weapon_scimitar" : {
+    "damage" : "1d6 slashing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "sword",
+    "id" : "weapon_scimitar",
+    "name" : "Scimitar",
+    "price" : 25,
+    "properties" : "Finesse, light",
+    "weight" : 3
+  },
+  "weapon_shortbow" : {
+    "damage" : "1d6 piercing",
+    "family" : "Simple Ranged Weapons",
+    "icon" : "ranged",
+    "id" : "weapon_shortbow",
+    "name" : "Shortbow",
+    "price" : 25,
+    "properties" : "Ammunition (range 80/320), two-handed",
+    "weight" : 2
+  },
+  "weapon_shortsword" : {
+    "damage" : "1d6 piercing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "sword",
+    "id" : "weapon_shortsword",
+    "name" : "Shortsword",
+    "price" : 10,
+    "properties" : "Finesse, light",
+    "weight" : 2
+  },
+  "weapon_sickle" : {
+    "damage" : "1d4 slashing",
+    "family" : "Simple Melee Weapons",
+    "icon" : "axe",
+    "id" : "weapon_sickle",
+    "name" : "Sickle",
+    "price" : 1,
+    "properties" : "Light",
+    "weight" : 2
+  },
+  "weapon_sling" : {
+    "damage" : "1d4 bludgeoning",
+    "family" : "Simple Ranged Weapons",
+    "icon" : "ranged",
+    "id" : "weapon_sling",
+    "name" : "Sling",
+    "price" : 0.1,
+    "properties" : "Ammunition (range 30/120)",
+    "weight" : "—"
+  },
+  "weapon_spear" : {
+    "damage" : "1d6 piercing",
+    "family" : "Simple Melee Weapons",
+    "icon" : "spear",
+    "id" : "weapon_spear",
+    "name" : "Spear",
+    "price" : 1,
+    "properties" : "Thrown (range 20/60), versatile (1d8)",
+    "weight" : 3
+  },
+  "weapon_trident" : {
+    "damage" : "1d6 piercing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "spear",
+    "id" : "weapon_trident",
+    "name" : "Trident",
+    "price" : 5,
+    "properties" : "Thrown (range 20/60), versatile (1d8)",
+    "weight" : 4
+  },
+  "weapon_war_pick" : {
+    "damage" : "1d8 piercing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "hammer",
+    "id" : "weapon_war_pick",
+    "name" : "War Pick",
+    "price" : 5,
+    "properties" : "—",
+    "weight" : 2
+  },
+  "weapon_warhammer" : {
+    "damage" : "1d8 bludgeoning",
+    "family" : "Martial Melee Weapons",
+    "icon" : "hammer",
+    "id" : "weapon_warhammer",
+    "name" : "Warhammer",
+    "price" : 15,
+    "properties" : "Versatile (1d10)",
+    "weight" : 2
+  },
+  "weapon_whip" : {
+    "damage" : "1d4 slashing",
+    "family" : "Martial Melee Weapons",
+    "icon" : "whip",
+    "id" : "weapon_whip",
+    "name" : "Whip",
+    "price" : 2,
+    "properties" : "Finesse, reach",
+    "weight" : 3
+  }
+}

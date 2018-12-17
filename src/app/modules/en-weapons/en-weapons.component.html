@@ -1,41 +1,12 @@
-<mat-spinner
-	*ngIf="!loaded"
-	class="center"
-	mode="indeterminate">
-</mat-spinner>
-
-
-<div *ngIf="loaded" id="container">
-	<div *ngFor="let type of weaponTypes">
-		<h1>{{ type.name }} </h1>
-		<table class="weapons-table">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Price</th>
-					<th>Weight</th>
-					<th>Damage</th>
-				</tr>
-			</thead>
-			<tbody>
-				<ng-container *ngFor="let weapon of type.weapons">
-					<tr>
-						<td>
-							<img class="icon" src="assets/icons/{{weapon.icon}}.png"/>
-							{{ weapon.name }}
-						</td>
-						<td>WD${{ weapon.price }}</td>
-						<td>{{ weapon.weight }} lbs.</td>
-						<td>{{ weapon.damage | damageToChar }}</td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-						<td colspan="3">
-							{{ weapon.properties }}
-						</td>
-					</tr>
-				</ng-container>
-			</tbody>
-		</table>
+<div class="block" *ngFor="let type of weaponTypes">
+	<div class="header">{{ type.name }} </div>
+	<div class="weapon" *ngFor="let weapon of type.weapons">
+		<div class="weapon-title">
+			<img class="icon" src="assets/icons/{{weapon.icon}}.png"/>
+			<b class="name">{{ weapon.name }}</b>
+			<i class="desc">
+				{{ weapon.damage }}, {{ weapon.properties }}
+			</i>
+		</div>
 	</div>
 </div>

@@ -38,6 +38,8 @@ import { MagicItemsFilterPipe } from './modules/en-magic-items/en-magic-items.fi
 import { EnCreaturesComponent } from './modules/en-creatures/en-creatures.component';
 import { EnCreatureComponent } from './modules/en-creature/en-creature.component';
 import { CreaturesFilterPipe } from './modules/en-creatures/en-creatures.filter';
+import { StatBlockComponent } from './shared/stat-block/stat-block.component';
+
 
 @NgModule({
 	declarations: [
@@ -60,7 +62,8 @@ import { CreaturesFilterPipe } from './modules/en-creatures/en-creatures.filter'
 		EnSpellComponent,
 		EnWeaponsComponent,
 		EnCreaturesComponent,
-		EnCreatureComponent
+		EnCreatureComponent,
+		StatBlockComponent
 	],
 	imports: [
 		BrowserModule,
@@ -142,6 +145,10 @@ import { CreaturesFilterPipe } from './modules/en-creatures/en-creatures.filter'
 				{
 					path: 'encyclopaedia/beastiary',
 					component: EnCreaturesComponent
+				},
+				{
+					path: 'encyclopaedia/beastiary/:id',
+					component: EnCreatureComponent
 				}
 			]
 		)

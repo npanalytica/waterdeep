@@ -4,5 +4,4 @@ node_modules/
 .vscode/
 package-lock.json
 .gitignore.swp
-data/
 src/environments/environment.ts

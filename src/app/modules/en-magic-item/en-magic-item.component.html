@@ -1,14 +1,12 @@
-<div *ngIf="(item$ | async) as item">
-	
-	<div id="title">
-		<div id="title-image">
-			<img id="img" src="assets/icons/{{ item.type | toUnderscore }}.png"/>
-		</div>
-
-		<div id="title-text">
-				<div id="name">{{ item.name }}</div>
-				<div id="subtitle">{{ item.type }} ({{ item.rarity}}) </div>
-			</div>
+<div id="title">
+	<div id="title-image">
+		<img id="img" src="assets/icons/{{ item.type | toUnderscore }}.png"/>
 	</div>
-	<div id="text" [innerHTML]="item.desc"></div>
+
+	<div id="title-text">
+		<div id="name">{{ item.name }}</div>
+		<div id="subtitle">{{ item.type }} ({{ item.rarity}}) </div>
+	</div>
 </div>
+
+<div id="text" [innerHTML]="item.desc"></div>

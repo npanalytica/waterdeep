@@ -2,8 +2,6 @@
 @import '~src/assets/style/layout';
 @import '~src/assets/style/mixins';
 
-.center { @extend .center }
-
 #title { @include header(22pt) }
 
 #ribbon { @include ribbon(5) }

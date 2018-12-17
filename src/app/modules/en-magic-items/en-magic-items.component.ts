@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { Constants } from 'src/app/lib/constants';
+import { MagicItemsService } from 'src/app/services/magic-items.service';
 
 @Component({
 	selector: 'app-en-magic-items',
@@ -10,14 +9,14 @@ import { Constants } from 'src/app/lib/constants';
 })
 export class EnMagicItemsComponent implements OnInit {
 	
-	items$ : Observable<any>
+	items : Array<any>
 	itemTypes : Array<string> = Constants.MagicItemTypes
 	itemRarities : Array<any> = Constants.MagicItemRarities
 	selectedRarity : string = null
 	selectedType : string = null
 
-	constructor(db : AngularFireDatabase) {
-		this.items$ = db.list('/magic-items').valueChanges()
+	constructor(MagicItems : MagicItemsService) {
+		this.items = MagicItems.getArray()
 	}
 	
 	ngOnInit() { }

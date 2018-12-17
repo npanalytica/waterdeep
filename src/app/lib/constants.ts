@@ -12,6 +12,27 @@ export class Constants {
 		'Wizard'
 	]
 
+	static Proficiencies = [
+		'acrobatics',
+		'animal handling',
+		'arcana',
+		'athletics',
+		'deception',
+		'history',
+		'insight',
+		'intimidation',
+		'investigation',
+		'medicine',
+		'nature',
+		'perception',
+		'performance',
+		'persuasion',
+		'religion',
+		'sleight of hand',
+		'stealth',
+		'survival'
+	]
+
 	static MagicItemRarities = [
 		{ name: 'common', 		alias: 'C', 	color: '#8c8c8c' },
 		{ name: 'uncommon', 	alias: 'U', 	color: '#739cb7' },

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { ActivatedRoute } from '@angular/router';
+import { MagicItemsService } from 'src/app/services/magic-items.service';
 
 @Component({
 	selector: 'app-en-magic-item',
@@ -10,12 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EnMagicItemComponent implements OnInit {
 	
-	item$ : Observable<any>
+	item : any
 
-	constructor(route : ActivatedRoute, db : AngularFireDatabase) {
+	constructor(route : ActivatedRoute, MagicItems : MagicItemsService) {
 		route.paramMap.subscribe(params => {
-			let url = `/magic-items/${params.get('id')}`
-			this.item$ = db.object(url).valueChanges()
+			this.item = MagicItems.get(params.get('id'))
 		})
 	}
 	

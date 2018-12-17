@@ -1,0 +1,36 @@
+<table>
+	<tr id="header">
+		<th>DEX</th>
+		<th>STR</th>
+		<th>CON</th>
+		<th>INT</th>
+		<th>WIS</th>
+		<th>CHA</th>
+	</tr>
+	<tr id="values">
+		<td>
+			{{ creature.dexterity }}
+			({{ calculateBonus(creature.dexterity) }})
+		</td>
+		<td>
+			{{ creature.strength }}
+			({{ calculateBonus(creature.strength) }})
+		</td>
+		<td>
+			{{ creature.constitution }}
+			({{ calculateBonus(creature.constitution) }})
+		</td>
+		<td>
+			{{ creature.intelligence }}
+			({{ calculateBonus(creature.intelligence) }})
+		</td>
+		<td>
+			{{ creature.wisdom }}
+			({{ calculateBonus(creature.wisdom) }})
+		</td>
+		<td>
+			{{ creature.charisma }}
+			({{ calculateBonus(creature.charisma) }})
+		</td>
+	</tr>
+</table>

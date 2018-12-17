@@ -1,11 +1,11 @@
 import * as _ from 'underscore'
 import { Component, OnInit } from '@angular/core'
-import { AngularFireDatabase } from 'angularfire2/database'
 import { Observable } from 'rxjs'
 import { FormControl } from '@angular/forms'
 import { map, startWith } from 'rxjs/operators'
 import { Router } from '@angular/router'
-import { Constants } from 'src/app/lib/constants';
+import { Constants } from 'src/app/lib/constants'
+import { SpellsService } from 'src/app/services/spells.service'
 
 @Component({
 	selector: 'app-en-spells',
@@ -25,15 +25,10 @@ export class EnSpellsComponent implements OnInit {
 
 	constructor(
 		private router : Router,
-		db : AngularFireDatabase) {
+		Spells : SpellsService) {
 		this.classes = Constants.SpellCastingClasses
-		db.list('/spells').valueChanges().subscribe(spells => {
-			for(let key in spells) {
-				this.spells.push(spells[key])
-			}
-			this.levels = this._groupByLevel(this.spells)
-			this.loaded = true
-		})
+		this.spells = Spells.getArray()
+		this.levels = this._groupByLevel(this.spells)
 	}
 	
 	ngOnInit() {

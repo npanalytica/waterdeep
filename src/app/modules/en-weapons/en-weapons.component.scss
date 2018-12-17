@@ -2,12 +2,38 @@
 @import '~src/assets/style/layout';
 @import '~src/assets/style/mixins';
 
-.center { @extend .center }
-
-.weapons-table {
-	font-size: 10pt;
+.header {
+	font-size: 15pt;
+	color: $pink;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-top: 10px;
+	border-bottom: 1px solid $light;
 }
 
-.icon {
-	height: 20px;
+.weapon {
+	border-bottom: 1px solid $light;
+	&:nth-child(even) {
+		background-color: lighten($light, 7);
+	}
+}
+
+.weapon-title {
+	padding: 5px;
+	img, span {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	img {
+		height: 20px;
+		margin-right: 6px;
+	}
+	.name {
+		font-weight: bold;
+	}
+	.desc {
+		margin-left: 5px;
+		color: $medium;
+		font-size: 10pt;
+	}
 }

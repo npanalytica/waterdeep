@@ -1,70 +1,61 @@
-<mat-spinner
-	*ngIf="!(spell$ | async)"
-	class="center"
-	mode="indeterminate">
-</mat-spinner>
-
-<div *ngIf="(spell$ | async) as spell">
-	<div id="title">
-		<div id="title-image">
-			<img id="img" src="assets/icons/{{spell.school}}.png"/>
-			<span id="img-level">{{ spell.level[0] }}</span>
-		</div>
-		<div id="title-text">
-			<div id="name">{{ spell.name }}</div>
-			<div id="subtitle">{{ spell.level }} {{ spell.school }} </div>
-		</div>
+<div id="title">
+	<div id="title-image">
+		<img id="img" src="assets/icons/{{spell.school}}.png"/>
+		<span id="img-level">{{ spell.level[0] }}</span>
 	</div>
-	<div id="ribbon">
-		<div class="entry" [ngClass]="{'active': spell.components.indexOf('V') !== -1}">
-			<img src="assets/icons/verbal.png"/>
-			<span>V</span>
-		</div>
-		<div class="entry" [ngClass]="{'active': spell.components.indexOf('S') !== -1}">
-			<img src="assets/icons/somatic.png"/>
-			<span>S</span>
-		</div>
-		<div class="entry" [ngClass]="{'active': spell.components.indexOf('M') !== -1}">
-			<img src="assets/icons/material.png"/>
-			<span>M</span>
-		</div>
-		<div class="entry" [ngClass]="{'active': spell.concentration}">
-			<img src="assets/icons/concentration.png"/>
-			<span>Con.</span>
-		</div>
-		<div class="entry" [ngClass]="{'active': spell.ritual}">
-			<img src="assets/icons/ritual.png"/>
-			<span>Rit.</span>
-		</div>
+	<div id="title-text">
+		<div id="name">{{ spell.name }}</div>
+		<div id="subtitle">{{ spell.level }} {{ spell.school }} </div>
 	</div>
-
-	<div id="properties">
-		<div class="property">
-			<span class="name">Classes: </span>
-			<span class="text">{{ spell.class }}</span>
-		</div>
-		<div class="property">
-			<span class="name">Casting time: </span>
-			<span class="text">{{ spell.casting_time }}</span>
-		</div>
-		<div class="property">
-			<span class="name">Duration: </span>
-			<span class="text">{{ spell.duration }}</span>
-		</div>
-		<div class="property" *ngIf="spell.material">
-			<span class="name">Material: </span>
-			<span class="text">{{ spell.material }}</span>
-		</div>
-		<div class="property">
-			<span class="name">Source: </span>
-			<span class="text"><i>{{ spell.page }}</i></span>
-		</div>
+</div>
+<div id="ribbon">
+	<div class="entry" [ngClass]="{'active': spell.components.indexOf('V') !== -1}">
+		<img src="assets/icons/verbal.png"/>
+		<span>V</span>
 	</div>
-
-	<div id="description" [innerHTML]="spell.desc"></div>
-
-	<div *ngIf="spell.higher_level" id="higher-levels">
-		<b>At Higher levels:</b><span [innerHTML]="spell.higher_level"></span>
+	<div class="entry" [ngClass]="{'active': spell.components.indexOf('S') !== -1}">
+		<img src="assets/icons/somatic.png"/>
+		<span>S</span>
 	</div>
+	<div class="entry" [ngClass]="{'active': spell.components.indexOf('M') !== -1}">
+		<img src="assets/icons/material.png"/>
+		<span>M</span>
+	</div>
+	<div class="entry" [ngClass]="{'active': spell.concentration}">
+		<img src="assets/icons/concentration.png"/>
+		<span>Con.</span>
+	</div>
+	<div class="entry" [ngClass]="{'active': spell.ritual}">
+		<img src="assets/icons/ritual.png"/>
+		<span>Rit.</span>
+	</div>
+</div>
 
+<div id="properties">
+	<div class="property">
+		<span class="name">Classes: </span>
+		<span class="text">{{ spell.class }}</span>
+	</div>
+	<div class="property">
+		<span class="name">Casting time: </span>
+		<span class="text">{{ spell.casting_time }}</span>
+	</div>
+	<div class="property">
+		<span class="name">Duration: </span>
+		<span class="text">{{ spell.duration }}</span>
+	</div>
+	<div class="property" *ngIf="spell.material">
+		<span class="name">Material: </span>
+		<span class="text">{{ spell.material }}</span>
+	</div>
+	<div class="property">
+		<span class="name">Source: </span>
+		<span class="text"><i>{{ spell.page }}</i></span>
+	</div>
+</div>
+
+<div id="description" [innerHTML]="spell.desc"></div>
+
+<div *ngIf="spell.higher_level" id="higher-levels">
+	<b>At Higher levels:</b><span [innerHTML]="spell.higher_level"></span>
 </div>

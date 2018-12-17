@@ -1,8 +1,7 @@
 import * as _ from 'underscore'
 import { Component, OnInit } from '@angular/core'
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs';
 import { Constants } from 'src/app/lib/constants';
+import { CreaturesService } from 'src/app/services/creatures.service'
 
 @Component({
 	selector: 'app-en-creatures',
@@ -11,7 +10,7 @@ import { Constants } from 'src/app/lib/constants';
 })
 export class EnCreaturesComponent implements OnInit {
 	
-	creatures$ : Observable<any>
+	creatures : Array<any>
 
 	creatureTypes = []
 	creaturesCR = []
@@ -19,8 +18,9 @@ export class EnCreaturesComponent implements OnInit {
 	selectedCRS : Array<string> = []
 	filterView : string = 'types'
 
-	constructor(db : AngularFireDatabase) {
-		this.creatures$ = db.list('/creatures/').valueChanges()
+	constructor(Creatures : CreaturesService) {
+
+		this.creatures = Creatures.getArray()
 
 		// Challenge rating filters
 		this.creaturesCR[0] = Constants.CreatureChallengeRatings.slice(0, 7)
