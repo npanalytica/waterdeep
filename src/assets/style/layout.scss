@@ -1,3 +1,27 @@
+@import './colors.scss';
+
+.dialog-close {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	.btn {
+		position: absolute;
+		right: 0px;
+		top: 0px;
+		float: right;
+		height: 40px;
+		width: 40px;
+		box-sizing: border-box;
+		padding-top: 6px;
+		background-color: $pink;
+		text-align: center;
+		font-size: 18pt;
+		color: $light;
+		outline: none !important;
+		border: none !important;
+	}
+}
 
 .text-and-icon {
 	i, span, img {

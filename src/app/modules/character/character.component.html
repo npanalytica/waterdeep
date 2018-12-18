@@ -1,0 +1,23 @@
+<mat-spinner
+	*ngIf="!(character$ | async)"
+	class="center"
+	mode="indeterminate">
+</mat-spinner>
+
+<ng-container *ngIf="(character$ | async) as character">
+	<h1>{{ character.name }}</h1>
+	<h1>Magic items</h1>
+	<div (click)="openDialog('item', item)" *ngFor="let item of character.inventory['magic-items'] | arraify">
+		{{ item.name }}
+	</div>
+	<h1>Spellbook</h1>
+	<div *ngFor="let spell of character.inventory.spellbook | arraify"
+		(click)="openDialog('spell', spell)">
+		{{ spell.name }}
+	</div>
+	<h1>Familiars</h1>
+	<div *ngFor="let creature of character.inventory.familiars | arraify"
+		(click)="openDialog('creature', creature)">
+		{{ creature.name }}
+	</div>
+</ng-container>

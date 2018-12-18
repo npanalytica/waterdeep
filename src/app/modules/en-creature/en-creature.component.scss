@@ -3,6 +3,7 @@
 @import '~src/assets/style/mixins';
 
 .center { @extend .center }
+.dialog-close { @extend .dialog-close }
 
 #title { @include header(18pt); }
 
@@ -43,4 +44,10 @@
 	.entry {
 		margin-bottom: 8px;
 	}
+}
+
+#bottom-btn-container {
+	margin-top: 10px;
+	text-align: center;
+	margin-bottom: 20px;
 }

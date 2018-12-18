@@ -2,9 +2,10 @@
 @import '~src/assets/style/layout';
 @import '~src/assets/style/mixins';
 
-#title {
-	@include header(16pt);
-}
+.center { @extend .center }
+.dialog-close { @extend .dialog-close }
+
+#title { @include header(16pt); }
 
 :host::ng-deep #text {
 	p:first-child {
@@ -26,8 +27,8 @@
 	tr:nth-child(even) { background-color: lighten($light, 7); }
 }
 
-#footer {
-	button {
-		text-transform: capitalize;
-	}
+#bottom-btn-container {
+	margin-top: 10px;
+	text-align: center;
+	margin-bottom: 20px;
 }

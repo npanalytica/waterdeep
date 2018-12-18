@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Constants } from 'src/app/lib/constants';
 import { CreaturesService } from 'src/app/services/creatures.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
 	selector: 'app-en-creature',
@@ -10,13 +12,16 @@ import { CreaturesService } from 'src/app/services/creatures.service';
 })
 export class EnCreatureComponent implements OnInit {
 
-	creature : any
+	loaded : boolean = false
+	@Input('creature') creature : any
+	inventory : any
 
-	constructor(route : ActivatedRoute, Creatures : CreaturesService) {
-		route.paramMap.subscribe(params => {
-			this.creature = Creatures.get(params.get('id'))
-		})
-	}
+	constructor(
+		private session : SessionService,
+		private db : AngularFireDatabase,
+		private route : ActivatedRoute,
+		private Creatures : CreaturesService
+	) { }
 
 	getProficiencyString(creature : any) : string {
 		let proficiencies = []
@@ -31,6 +36,25 @@ export class EnCreatureComponent implements OnInit {
 		return proficiencies.join(', ')
 	}
 	
-	ngOnInit() { }
+	ngOnInit() { 
+		this.route.paramMap.subscribe(params => {
+			if(!this.creature)
+				this.creature = this.Creatures.get(params.get('id'))
+			let url = `/users/${this.session.user}/inventory/familiars/${this.creature.id}`
+			this.db.object(url).valueChanges().subscribe(res => {
+				this.inventory = res
+				this.loaded = true
+			})
+		})
+	}
+
+	addToInventory() : void {
+		this.session.addObject('/inventory/familiars', this.creature.id, this.creature)
+	}
+
+	removeFromInventory() : void {
+		let url = `/inventory/familiars/${this.creature.id}`
+		this.session.removeObject(url)
+	}
 
 }

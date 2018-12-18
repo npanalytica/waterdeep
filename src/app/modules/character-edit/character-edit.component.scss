@@ -1,0 +1,56 @@
+@import '~src/assets/style/colors';
+@import '~src/assets/style/layout';
+@import '~src/assets/style/mixins';
+
+#content {
+}
+
+.form {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20px;
+}
+
+#stats {
+	text-align: center;
+}
+
+.stat {
+
+	.name {
+		padding: 6px;
+		font-weight: bold;
+		font-size: 10pt;
+		color: $light;
+		text-align: center;
+		background-color: $dark;
+		img, span {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		img {
+			height: 30px;
+		}
+	}
+	/*
+	.mod {
+		font-size: 26pt;
+		font-weight: bold;
+	}
+
+	.arrow {
+		position: absolute;
+		top: 10px;
+		font-size: 60pt;
+		color: $medium;
+		&.less { left: -68px; }
+		&.more { right: -68px; }
+	}
+
+	.value {
+		@include borderRadiusBottom(6px);
+		background-color: $light;
+	}*/
+	
+
+}

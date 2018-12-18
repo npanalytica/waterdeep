@@ -6,6 +6,28 @@
 	border-radius: $rad;
 }
 
+@mixin borderRadiusTop($rad) {
+	-webkit-border-top-left-radius: $rad;
+	-khtml-border-top-left-radius: $rad;    
+	-moz-border-top-left-radius: $rad;
+	-webkit-border-top-right-radius: $rad;
+	-khtml-border-top-right-radius: $rad;    
+	-moz-border-top-right-radius: $rad;
+	border-top-left-radius: $rad;
+	border-top-right-radius: $rad;
+}
+
+@mixin borderRadiusBottom($rad) {
+	-webkit-border-bottom-left-radius: $rad;
+	-khtml-border-bottom-left-radius: $rad;    
+	-moz-border-bottom-left-radius: $rad;
+	-webkit-border-bottom-right-radius: $rad;
+	-khtml-border-bottom-right-radius: $rad;    
+	-moz-border-bottom-right-radius: $rad;
+	border-bottom-left-radius: $rad;
+	border-bottom-right-radius: $rad;
+}
+
 @mixin header($title-font-size) {
 	background-color: $dark;
 	color: $light;

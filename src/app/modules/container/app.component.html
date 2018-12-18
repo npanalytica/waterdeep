@@ -3,9 +3,9 @@
 		<button mat-icon-button (click)="snav.toggle()">
 			<mat-icon>menu</mat-icon>
 		</button>
-		<h1 class="app-name">Waterdep, Midgard</h1>
+		<h2 class="app-name"><span>DnD, Midgard</span> <i>{{ session.user }}</i></h2>
 		<div style="flex: 1 1 auto;"></div>
-		<button mat-icon-button>
+		<button mat-icon-button routerLink="/search">
 			<mat-icon>search</mat-icon>
 		</button>
 		<button mat-icon-button (click)="e_snav.toggle()">
@@ -20,6 +20,10 @@
 			(click)="snav.toggle()"
 			[fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
 			<mat-nav-list>
+				<a class="nav-item" routerLink="inventory">
+					<i class="material-icons">account_balance</i>
+					<span>Inventario</span>
+				</a>
 				<a class="nav-item" routerLink="/">
 					<i class="material-icons">account_box</i>
 					<span>Balance</span>

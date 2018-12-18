@@ -1,0 +1,36 @@
+@import '~src/assets/style/colors';
+@import '~src/assets/style/layout';
+@import '~src/assets/style/mixins';
+
+.center { @extend .center }
+
+.block > .title {
+	padding: 8px;
+	font-size: 14pt;
+	color: $pink;
+	border-bottom: 1px solid $light;
+}
+
+.block > .entry {
+	padding: 8px;
+	border-bottom: 1px solid $light;
+	&:nth-child(even) {
+		background-color: lighten($light, 7);
+	}
+	.icon-ball, .name {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.icon-ball {
+		@include borderRadius(30px);
+		height: 30px;
+		width: 30px;
+		text-align: center;
+		margin-right: 10px;
+		box-sizing: border-box;
+		padding-top: 5px;
+		padding-right: 1px;
+		background-color: $dark;
+		img { height: 20px; }
+	}
+}

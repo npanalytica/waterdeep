@@ -2,6 +2,8 @@
 @import '~src/assets/style/layout';
 @import '~src/assets/style/mixins';
 
+.dialog-close { @extend .dialog-close }
+
 #title { @include header(22pt) }
 
 #ribbon { @include ribbon(5) }
@@ -35,4 +37,10 @@
 		font-size: 10pt;
 		font-style: italic;
 	}
+}
+
+#bottom-btn-container {
+	margin-top: 10px;
+	text-align: center;
+	margin-bottom: 20px;
 }

@@ -15,8 +15,17 @@
 	z-index: 2;
 }
   
-h1.app-name {
+h2.app-name {
 	margin-left: 8px;
+	span, i {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	i {
+		margin-left: 5px;
+		font-size: 12pt;
+		color: $light;
+	}
 }
   
 .sidenav-container {
@@ -39,4 +48,15 @@ h1.app-name {
 		color: $medium;
 		margin-right: 10px;
 	}
+}
+
+#search-container {
+	z-index: 100;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	background-color: $light;
+	opacity: 0.6;
 }

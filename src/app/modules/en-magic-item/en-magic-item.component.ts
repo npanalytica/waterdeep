@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MagicItemsService } from 'src/app/services/magic-items.service';
+import { SessionService } from 'src/app/services/session.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
 	selector: 'app-en-magic-item',
@@ -10,14 +11,41 @@ import { MagicItemsService } from 'src/app/services/magic-items.service';
 })
 export class EnMagicItemComponent implements OnInit {
 	
-	item : any
+	loaded : boolean = true
+	@Input('item') item : any
+	inventory : any
 
-	constructor(route : ActivatedRoute, MagicItems : MagicItemsService) {
-		route.paramMap.subscribe(params => {
-			this.item = MagicItems.get(params.get('id'))
+	constructor(
+		private session : SessionService,
+		private db : AngularFireDatabase,
+		private route : ActivatedRoute,
+		private MagicItems : MagicItemsService
+	) { }
+	
+	ngOnInit() {
+		// Else load inventory
+		this.route.paramMap.subscribe(params => {
+			if(!this.item)
+				this.item = this.MagicItems.get(params.get('id'))
+			let url = `/users/${this.session.user}/inventory/magic-items/${this.item.id}`
+			this.db.object(url).valueChanges().subscribe(res => {
+				this.inventory = res
+				this.loaded = true
+			})
 		})
 	}
-	
-	ngOnInit() { }
+
+	loadInventory() {
+		
+	}
+
+	addToInventory() : void {
+		this.session.addObject('/inventory/magic-items', this.item.id, this.item)
+	}
+
+	removeFromInventory() : void {
+		let url = `/inventory/magic-items/${this.item.id}`
+		this.session.removeObject(url)
+	}
 
 }
