@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Constants } from 'src/app/lib/constants';
-import { CreaturesService } from 'src/app/services/creatures.service';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { SessionService } from 'src/app/services/session.service';
+import * as _ from 'underscore'
+import { Component, OnInit, Input } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { Constants } from 'src/app/lib/constants'
+import { CreaturesService } from 'src/app/services/creatures.service'
+import { AngularFireDatabase } from 'angularfire2/database'
+import { SessionService } from 'src/app/services/session.service'
 
 @Component({
 	selector: 'app-en-creature',
@@ -25,7 +26,8 @@ export class EnCreatureComponent implements OnInit {
 
 	getProficiencyString(creature : any) : string {
 		let proficiencies = []
-		Constants.Proficiencies.forEach(proficiency => {
+		let available = _.pluck(Constants.Proficiencies, 'name')
+		available.forEach(proficiency => {
 			let score = creature[proficiency]
 			if(score) {
 				// Add a plus on positive scores

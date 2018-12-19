@@ -27,7 +27,7 @@ import { AngularFireModule } from 'angularfire2'
 import { AngularFireDatabaseModule } from 'angularfire2/database'
 import { AngularFireAuthModule } from 'angularfire2/auth'
 import { environment } from 'src/environments/environment'
-import { ArraifyPipe, ToTextPipe, DamageToCharPipe, ToUnderscorePipe } from 'src/lib/pipes';
+import { ArraifyPipe, ToTextPipe, DamageToCharPipe, ToUnderscorePipe, FromUnderscorePipe } from 'src/lib/pipes';
 import { ShopComponent } from './modules/shop/shop.component'
 import { IconRarityComponent } from './shared/icon-rarity/icon-rarity.component';
 import { EnMagicItemsComponent } from './modules/en-magic-items/en-magic-items.component';
@@ -50,6 +50,7 @@ import { CharacterInventoryComponent } from './modules/character-inventory/chara
 import { CharacterHeaderComponent } from './shared/character-header/character-header.component';
 import { CharacterEditComponent } from './modules/character-edit/character-edit.component';
 import { CharacterSheetComponent } from './modules/character-sheet/character-sheet.component';
+import { NumberSliderComponent } from './shared/number-slider/number-slider.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { CharacterSheetComponent } from './modules/character-sheet/character-she
 		ArraifyPipe,
 		ToTextPipe,
 		ToUnderscorePipe,
+		FromUnderscorePipe,
 		DamageToCharPipe,
 		CreaturesFilterPipe,
 		MagicItemsFilterPipe,
@@ -82,7 +84,8 @@ import { CharacterSheetComponent } from './modules/character-sheet/character-she
 		CharacterInventoryComponent,
 		CharacterHeaderComponent,
 		CharacterEditComponent,
-		CharacterSheetComponent
+		CharacterSheetComponent,
+		NumberSliderComponent
 	],
 	imports: [
 		BrowserModule,

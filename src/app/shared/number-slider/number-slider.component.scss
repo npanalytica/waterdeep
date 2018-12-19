@@ -1,0 +1,144 @@
+@import '~src/assets/style/colors';
+@import '~src/assets/style/mixins';
+
+#slider.even { background-color: lighten($light, 6) }
+
+#slider {
+	padding: 10px;
+	border-bottom: 1px solid $light;
+	display: flex;
+
+	#icon, #name, #divider, #control {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	#name {
+		margin-top: 4px;
+		text-transform: capitalize;
+	}
+
+	#icon {
+		@include borderRadius(40px);
+		height: 30px;
+		width: 30px;
+		text-align: center;
+		box-sizing: border-box;
+		padding-top: 6px;
+		margin-right: 8px;
+		background-color: $dark;
+		&.proficient { background-color: $pink; }
+		img { height: 20px; }
+	}
+
+	#divider {
+		flex: 1 1 auto
+	}
+}
+
+#control {
+	.arrow, #score, #mod {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	#score {
+		font-weight: bold;
+	}
+
+	#mod {
+		color: $medium;
+	}
+
+	.arrow {
+		@include borderRadius(34px);
+		height: 34px;
+		width: 34px;
+		opacity: 0.7;
+		background-color: $primary;
+		color: $light;
+		text-align: center;
+		box-sizing: border-box;
+		padding-top: 6px;
+		&.left { margin-right: 10px; }
+		&.right { margin-left: 10px; }
+	}
+}
+
+/*#slider {
+
+	font-size: 0pt !important;
+
+	#header, #row {
+		display: inline-block;
+		box-sizing: border-box;
+		height: 40px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	#header { width: 60%; }
+
+	#row { width: 40%; }
+
+	#header {
+		font-weight: bold;
+		color: $light;
+		text-align: center;
+		background-color: $dark;
+		position: relative;
+		text-align: left;
+		font-size: 12pt;
+		#name {
+			padding: 10px;
+		}
+		img, span {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		img {
+			height: 25px;
+			margin-right: 3px;
+			margin-left: 3px;
+		}
+		#proficency {
+			font-size: 10pt;
+			font-weight: normal;
+			float: right;
+			color: $light;
+			position: absolute;
+			right: 0px;
+			top: 0px;
+			bottom: 0px;
+			padding-left: 8px;
+			padding-right: 7px;
+			padding-top: 9px;
+			background-color: $medium;
+			img { height: 20px; }
+			&.proficient { background-color: $primary }
+		}
+
+	}
+	#row {
+		background-color: $light;
+		.value {
+			font-size: 16pt;
+			.score { color: $dark; margin-right: 6px; }
+			.mod { color: $primary; }
+			box-sizing: border-box;
+		}
+		.arrow {
+			position: absolute;
+			top: 0px;
+			height: 41px;
+			width: 41px;
+			background-color: $pink;
+			color: $light;
+			box-sizing: border-box;
+			padding-top: 3px;
+			&.left { left: 0px; }
+			&.right { right: 0px; }
+			i { font-size: 26pt; }
+		}
+	}
+}*/

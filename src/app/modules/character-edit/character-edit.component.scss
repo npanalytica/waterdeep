@@ -2,55 +2,32 @@
 @import '~src/assets/style/layout';
 @import '~src/assets/style/mixins';
 
-#content {
-}
+.center { @extend .center }
 
-.form {
+.text-input {
 	width: 100%;
 	box-sizing: border-box;
-	padding: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0px !important;
 }
 
-#stats {
+.header {
+	padding: 8px;
+	padding-bottom: 10px;
+	font-size: 14pt;
+	color: $pink;
+	border-bottom: 1px solid $light;
+	&.space {
+		margin-top: 30px;
+	}
+	&.first {
+		margin-top: 10px;
+		border: none;
+	}
+}
+
+#calculate-bonus-button {
 	text-align: center;
-}
-
-.stat {
-
-	.name {
-		padding: 6px;
-		font-weight: bold;
-		font-size: 10pt;
-		color: $light;
-		text-align: center;
-		background-color: $dark;
-		img, span {
-			display: inline-block;
-			vertical-align: middle;
-		}
-		img {
-			height: 30px;
-		}
-	}
-	/*
-	.mod {
-		font-size: 26pt;
-		font-weight: bold;
-	}
-
-	.arrow {
-		position: absolute;
-		top: 10px;
-		font-size: 60pt;
-		color: $medium;
-		&.less { left: -68px; }
-		&.more { right: -68px; }
-	}
-
-	.value {
-		@include borderRadiusBottom(6px);
-		background-color: $light;
-	}*/
-	
-
+	margin-top: 30px;
 }

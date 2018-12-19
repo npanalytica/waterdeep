@@ -12,7 +12,37 @@ export class Constants {
 		'Wizard'
 	]
 
+	static MainStats = [
+		'strength',
+		'dexterity',
+		'constitution',
+		'intelligence',
+		'wisdom',
+		'charisma'
+	]
+
 	static Proficiencies = [
+		{ name: 'acrobatics', 		parent: 'dexterity' },
+		{ name: 'animal_handling', 	parent: 'wisdom' },
+		{ name: 'arcana', 			parent: 'intelligence' },
+		{ name: 'athletics', 		parent: 'strength'},
+		{ name: 'deception', 		parent: 'charisma' },
+		{ name: 'history', 			parent: 'intelligence' },
+		{ name: 'insight', 			parent: 'wisdom' },
+		{ name: 'intimidation', 	parent: 'charisma' },
+		{ name: 'investigation', 	parent: 'intelligence' },
+		{ name: 'medicine', 		parent: 'wisdom' },
+		{ name: 'nature', 			parent: 'intelligence' },
+		{ name: 'perception', 		parent: 'wisdom' },
+		{ name: 'performance', 		parent: 'charisma' },
+		{ name: 'persuasion', 		parent: 'charisma' },
+		{ name: 'religion', 		parent: 'intelligence' },
+		{ name: 'sleight_of_hand', 	parent: 'dexterity' },
+		{ name: 'stealth', 			parent: 'dexterity' },
+		{ name: 'survival', 		parent: 'wisdom' }
+	]
+
+	/*static Proficiencies = [
 		'acrobatics',
 		'animal handling',
 		'arcana',
@@ -31,7 +61,7 @@ export class Constants {
 		'sleight of hand',
 		'stealth',
 		'survival'
-	]
+	]*/
 
 	static MagicItemRarities = [
 		{ name: 'common', 		alias: 'C', 	color: '#8c8c8c' },

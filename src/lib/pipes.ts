@@ -31,7 +31,6 @@ export class DamageToCharPipe implements PipeTransform {
 	}
 }
 
-
 // Turns a string with spaces into a lowercase
 // string with underscores
 @Pipe({ name: 'toUnderscore' })
@@ -39,6 +38,17 @@ export class ToUnderscorePipe implements PipeTransform {
 	transform(text : string) : string {
 		return text
 		.replace(/\s/g, '_')
+		.toLowerCase()
+	}
+}
+
+
+// Reverses the toUnderscore Pipe
+@Pipe({ name: 'fromUnderscore' })
+export class FromUnderscorePipe implements PipeTransform {
+	transform(text : string) : string {
+		return text
+		.replace(/\_/g, ' ')
 		.toLowerCase()
 	}
 }

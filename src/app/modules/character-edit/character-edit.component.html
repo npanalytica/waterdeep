@@ -1,36 +1,92 @@
-<div id="content">
-	<!--<mat-form-field class="form">
+<mat-spinner
+	*ngIf="!loaded"
+	class="center"
+	mode="indeterminate">
+</mat-spinner>
+
+<ng-container *ngIf="loaded">
+	<character-header [character]="character" active="edit"></character-header>
+	<!-- General -->
+	<div class="header first">Personaje</div>
+	<mat-form-field class="text-input">
 		<input
-			autofocus
 			matInput
+			[(ngModel)]="character.name"
+			(blur)="update()"
 			type="text"
 			placeholder="Nombre..."/>
 	</mat-form-field>
-	<mat-form-field class="form">
+	<mat-form-field class="text-input">
 		<input
-			autofocus
 			matInput
+			[(ngModel)]="character.race"
+			(blur)="update()"
+			type="text"
+			placeholder="Raza..."/>
+	</mat-form-field>
+	<mat-form-field class="text-input">
+		<input
+			matInput
+			[(ngModel)]="character.class"
+			(blur)="update()"
 			type="text"
 			placeholder="Clase..."/>
 	</mat-form-field>
-	<mat-form-field class="form">
-		<input
-			autofocus
-			matInput
-			type="text"
-			placeholder="Nivel..."/>
-	</mat-form-field>-->
 
-	<div id="stats">
-		<div class="stat">
-			<div class="name">
-				<img id="img" src="assets/icons/stats/STR.png"/>
-				<span>Strength</span>
-			</div>
-			<i class="material-icons arrow less">keyboard_arrow_left</i>
-			<i class="material-icons arrow more">keyboard_arrow_right</i>
-			<div class="mod">+5</div>
-			<div class="value">20</div>
-		</div>
+	<div class="header">General</div>
+	<number-slider
+		name="Nivel"
+		prop="level"
+		[even]="true"
+		(onChange)="update($event)"
+		[object]="character"
+		image="assets/icons/stats/proficiency.png">
+	</number-slider>
+
+	<div class="header space">Stats</div>
+	<number-slider
+		[name]="stat"
+		[prop]="stat"
+		(onChange)="update($event)"
+		[displayBonus]="true"
+		[even]="even"
+		[object]="character"
+		image="assets/icons/stats/{{ stat }}.png"
+		*ngFor="let stat of stats; let even = even;">
+	</number-slider>
+
+	<div id="calculate-bonus-button">
+		<button
+			href=""
+			(click)="calculateBonuses()"
+			mat-flat-button color="primary">
+			<span id="btn-text">Calcular Bonos</span>
+		</button>
 	</div>
-</div>
+
+	<div class="header space">Saving throws</div>
+	<number-slider
+		[name]="stat"
+		prop="{{stat}}_save"
+		proficiency="saves"
+		(onChange)="update($event)"
+		[isBonus]="true"
+		[even]="even"
+		[object]="character"
+		image="assets/icons/stats/{{ stat }}.png"
+		*ngFor="let stat of stats; let even = even;">
+	</number-slider>
+
+	<div class="header space">Abilities</div>
+	<number-slider
+		[name]="proficiency.name"
+		[prop]="proficiency.name"
+		proficiency="proficiencies"
+		(onChange)="update($event)"
+		[isBonus]="true"
+		[even]="even"
+		[object]="character"
+		image="assets/icons/stats/{{ proficiency.name }}.png"
+		*ngFor="let proficiency of proficiencies; let even = even;">
+	</number-slider>
+</ng-container>
