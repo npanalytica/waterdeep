@@ -1,0 +1,87 @@
+@import '~src/assets/style/colors';
+@import '~src/assets/style/layout';
+@import '~src/assets/style/mixins';
+
+.center { @extend .center }
+
+
+#basic-stats {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: lighten($light, 7);
+	border-bottom: 1px solid lighten($light, 3);
+	border-top: 1px solid lighten($light, 3);
+}
+
+.section-header {
+	color: $pink;
+	padding: 10px;
+	margin-top: 10px;
+	font-weight: bold;
+	border-bottom: 1px solid $light;
+}
+
+.stat {
+	display: inline-block;
+	vertical-align: middle;
+	width: (100 / 3) * 1%;
+	text-align: center;
+	box-sizing: border-box;
+	&:not(:last-child) {
+		border-right: 1px solid lighten($light, 3);
+	}
+	.value, .text {
+		display: block;
+	}
+	.value {
+		margin-top: 4px;
+		color: $medium;
+		font-size: 28pt;
+	}
+	.text {
+		font-size: 8pt;
+		font-weight: bold;
+		text-align: center;
+		color: $pink;
+		margin-bottom: 4px;
+	}
+}
+
+.proficiency {
+	display: flex;
+	flex-direction: row;
+	padding: 5px;
+	border-bottom: 1px solid $light;
+	&.odd {
+		background-color: lighten($light, 7);
+	}
+	.icon, .name, .bonus {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.name {
+		margin-top: 3px;
+		flex-grow: 1;
+	}
+	.icon {
+		@include ball(30px);
+		padding-top: 5px;
+		margin-right: 8px;
+		background-color: $dark;
+		&.proficient { background-color: $pink; }
+		img { height: 20px; }
+	}
+	.bonus {
+		@include borderRadius(5px);
+		text-align: center;
+		box-sizing: border-box;
+		padding-top: 6px;
+		width: 36px;
+		font-size: 10pt;
+		font-weight: bold;
+		color: $light;
+		background-color: $primary;
+		margin-right: 10px;
+		&.save { background-color: $pink; }
+	}
+}

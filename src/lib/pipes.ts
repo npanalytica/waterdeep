@@ -52,3 +52,12 @@ export class FromUnderscorePipe implements PipeTransform {
 		.toLowerCase()
 	}
 }
+
+
+// Ads a + symbol to positive numbers
+@Pipe({ name: 'formatBonus' })
+export class FormatBonusPipe implements PipeTransform {
+	transform(value : number) : string {
+		return value >= 0 ? `+${value}` : `${value}`
+	}
+}

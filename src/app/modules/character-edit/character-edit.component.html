@@ -34,6 +34,7 @@
 	</mat-form-field>
 
 	<div class="header">General</div>
+	<!-- Level -->
 	<number-slider
 		name="Nivel"
 		prop="level"
@@ -41,6 +42,42 @@
 		(onChange)="update($event)"
 		[object]="character"
 		image="assets/icons/stats/proficiency.png">
+	</number-slider>
+	<!-- AC -->
+	<number-slider
+		name="AC"
+		prop="ac"
+		[even]="false"
+		(onChange)="update($event)"
+		[object]="character"
+		image="assets/icons/stats/ac.png">
+	</number-slider>
+	<!-- Max HP -->
+	<number-slider
+		name="Max HP"
+		prop="max_hp"
+		[even]="true"
+		(onChange)="update($event)"
+		[object]="character"
+		image="assets/icons/stats/constitution.png">
+	</number-slider>
+	<!-- Initiative -->
+	<number-slider
+		name="Initiative"
+		prop="initiative"
+		[even]="false"
+		(onChange)="update($event)"
+		[object]="character"
+		image="assets/icons/stats/initiative.png">
+	</number-slider>
+	<!-- Speed -->
+	<number-slider
+		name="Speed"
+		prop="speed"
+		[even]="true"
+		(onChange)="update($event)"
+		[object]="character"
+		image="assets/icons/stats/speed.png">
 	</number-slider>
 
 	<div class="header space">Stats</div>

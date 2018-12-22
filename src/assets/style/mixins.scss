@@ -1,3 +1,4 @@
+@import './colors.scss';
 
 @mixin borderRadius($rad) {
 	-webkit-border-radius: $rad;
@@ -26,6 +27,14 @@
 	-moz-border-bottom-right-radius: $rad;
 	border-bottom-left-radius: $rad;
 	border-bottom-right-radius: $rad;
+}
+
+@mixin ball($size) {
+	@include borderRadius($size);
+	height: $size;
+	width: $size;
+	text-align: center;
+	box-sizing: border-box;
 }
 
 @mixin header($title-font-size) {
@@ -100,7 +109,7 @@
 	}
 }
 
-@mixin ribbon($nItems) {
+@mixin ribbon($nItems, $highlight: $pink) {
 	$width: 100 / $nItems * 1%;
 	background-color: lighten($dark, 10);
 	.entry {
@@ -124,6 +133,6 @@
 	}
 
 	.entry.active {
-		background-color: $pink;
+		background-color: $highlight;
 	}
 }

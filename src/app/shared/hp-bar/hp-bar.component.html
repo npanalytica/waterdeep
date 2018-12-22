@@ -1,0 +1,18 @@
+<div id="bar">
+	<span id="label">HP</span>
+	<span class="button substract" (click)="showDialog('substract')">
+		<i class="material-icons">remove</i>
+	</span>
+	<span class="button primary" (click)="decrease()">
+		<i class="material-icons">keyboard_arrow_left</i>
+	</span>
+	<span id="value" (click)="showDialog('set')">
+		{{ character.hp }} / {{ character.max_hp }}
+	</span>
+	<span class="button primary" (click)="increase()">
+		<i class="material-icons">keyboard_arrow_right</i>
+	</span>
+	<span class="button add" (click)="showDialog('add')">
+		<i class="material-icons">add</i>
+	</span>
+</div> 

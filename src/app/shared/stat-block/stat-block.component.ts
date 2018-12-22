@@ -13,9 +13,12 @@ export class StatBlockComponent implements OnInit {
 	
 	ngOnInit() { }
 
-	calculateBonus(value : number) : string {
-		let v = Math.floor(value / 2 - 5)
-		return v > 0 ? `+${v}` : `${v}`
+	calculateBonus(value : number) : number {
+		return Math.floor(value / 2 - 5)
+	}
+
+	save(stat : string) : number {
+		return this.creature[`${stat}_save`] || this.calculateBonus(this.creature[stat])
 	}
 
 }

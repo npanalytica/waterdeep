@@ -9,11 +9,13 @@
 	<span id="control">
 		<i class="arrow material-icons icon left"
 			(click)="decrease()">keyboard_arrow_left</i>
-		<span id="score">
-			<span *ngIf="isBonus && object[prop] >= 0">+</span>{{ object[prop] }}
-		</span>
-		<span id="mod" *ngIf="displayBonus">
-			&nbsp;({{ calculateStatBonus() }})
+		<span id="value" (click)="showNumerDialog()">
+			<span id="score">
+				<span *ngIf="isBonus && object[prop] >= 0">+</span>{{ object[prop] }}
+			</span>
+			<span id="mod" *ngIf="displayBonus">
+				&nbsp;({{ calculateStatBonus() }})
+			</span>
 		</span>
 		<i class="arrow material-icons icon right"
 			(click)="increase()">keyboard_arrow_right</i>

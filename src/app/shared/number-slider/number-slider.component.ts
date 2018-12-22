@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { NumberPickerComponent } from '../number-picker/number-picker.component';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
 	selector: 'number-slider',
@@ -19,17 +22,37 @@ export class NumberSliderComponent implements OnInit {
 	@Input() isBonus : boolean = false // If number is raw bonus (e.g, athletics)
 	@Output() onChange = new EventEmitter() // Emit when change is detected
 
-	constructor() { }
+	constructor(public dialog : MatDialog) { }
 	
 	ngOnInit() { }
+
+	showNumerDialog() : void {
+		let dialogRef = this.dialog.open(NumberPickerComponent, {});
+	
+		dialogRef.afterClosed().subscribe(number => {
+			if(isNaN(number)) return
+			this.object[this.prop] = number
+			this.onChange.emit('complete')
+		});
+	}
 
 	increase() {
 		this.object[this.prop]++
 		this.onChange.emit('complete')
 	}
 
+	increaseTen() {
+		this.object[this.prop] += 8
+		this.onChange.emit('complete')
+	}
+
 	decrease() {
 		this.object[this.prop]--
+		this.onChange.emit('complete')
+	}
+
+	decreaseTen() {
+		this.object[this.prop] -= 8
 		this.onChange.emit('complete')
 	}
 

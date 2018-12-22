@@ -10,6 +10,11 @@ export class CharacterBuilder {
 		data.name = data.name || 'Nuevo Personaje'
 		data.class = data.class || 'Sin clase'
 		data.race = data.race || 'Sin raza'
+		data.max_hp = data.max_hp || 1
+		data.ac = data.ac || 10
+		data.hp = data.hp || 1
+		data.speed = data.speed || 30
+		data.initiative = data.initiative || 0
 		// Set level if none is defined
 		data.level = data.level || 1
 		// Set stats & saving throws if none are defined

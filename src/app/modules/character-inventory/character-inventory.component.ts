@@ -45,4 +45,9 @@ export class CharacterInventoryComponent implements OnInit {
 		}
 	}
 
+	addToFavorites($event : Event, item : any, group : string) {
+		$event.stopPropagation()
+		console.log('adding', item.name, 'to', group)
+	}
+
 }

@@ -4,4 +4,4 @@
 
 #title { @include header(22pt) }
 
-#ribbon { @include ribbon(3); }
+#ribbon { @include ribbon(3, $dark); }
