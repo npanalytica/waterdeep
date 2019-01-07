@@ -1,0 +1,15 @@
+<h1>{{ enemies.length }}</h1>
+<dnd-search
+	(onSelect)="addCreature($event)"
+	only="creatures">
+</dnd-search>
+
+<div *ngFor="let enemy of enemies">
+	<span>{{ enemy.name }}</span>
+	<span>{{ getEnemyCount(enemy) }}</span>
+	<span (click)="removeEnemy(enemy)">
+		<i class="material-icons">close</i>
+	</span>
+</div>
+XP;:::::
+<h1>{{ XP }}</h1>SDDS

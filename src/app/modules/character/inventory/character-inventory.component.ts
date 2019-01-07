@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { SessionService } from 'src/app/services/session.service';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { MatDialog } from '@angular/material';
-import { EnMagicItemComponent } from '../en-magic-item/en-magic-item.component';
-import { EnCreatureComponent } from '../en-creature/en-creature.component';
-import { EnSpellComponent } from '../en-spell/en-spell.component';
+import { Component, OnInit } from '@angular/core'
+import { Observable } from 'rxjs'
+import { SessionService } from 'src/app/services/session.service'
+import { AngularFireDatabase } from 'angularfire2/database'
+import { MatDialog } from '@angular/material'
+import { EnMagicItemComponent } from '../../encyclopedia/magic-item/en-magic-item.component'
+import { EnCreatureComponent } from '../../encyclopedia/creature/en-creature.component'
+import { EnSpellComponent } from '../../encyclopedia/spell/en-spell.component'
 
 @Component({
   selector: 'app-character-inventory',
@@ -43,11 +43,6 @@ export class CharacterInventoryComponent implements OnInit {
 			case 'creature': return EnCreatureComponent
 			case 'spell': return EnSpellComponent
 		}
-	}
-
-	addToFavorites($event : Event, item : any, group : string) {
-		$event.stopPropagation()
-		console.log('adding', item.name, 'to', group)
 	}
 
 }

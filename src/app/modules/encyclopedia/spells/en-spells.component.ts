@@ -79,7 +79,7 @@ export class EnSpellsComponent implements OnInit {
 	}
 
 	goToSpell(spell) : void {
-		this.router.navigate(['/encyclopaedia', 'spells', spell.id])
+		this.router.navigate(['/encyclopedia', 'spells', spell.id])
 	}
 
 }

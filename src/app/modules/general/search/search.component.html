@@ -1,19 +1,19 @@
 <div id="container">
 	<mat-form-field id="search-form">
-		<input #filter
-			autofocus
-			matInput
-			type="text"
-			placeholder="Buscar..."
-			(keyup)="search(filter.value)"/>
+		<input #filter autofocus matInput type="text" placeholder="Buscar..." (keyup)="search(filter.value)" />
 	</mat-form-field>
 
 	<div id="results" *ngIf="results.length > 0 && results.length < MAX_RESULTS">
-		<div class="result"
-			routerLink="{{result.url}}"
-			*ngFor="let result of results">
+		<div class="result" routerLink="{{result.url}}" *ngFor="let result of results">
 			<span class="type {{ result.type }}">{{ result.type }}</span>
 			<span class="name">{{ result.name }}</span>
+			<button
+				*ngIf="only"
+				mat-flat-button
+				color="primary"
+				(click)="addItem($event, result)">
+				<i class="material-icons">plus_one</i>
+			</button>
 		</div>
 	</div>
 

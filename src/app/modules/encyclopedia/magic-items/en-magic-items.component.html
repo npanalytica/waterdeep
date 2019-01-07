@@ -22,7 +22,7 @@
 
 <div *ngFor="let item of items | filterMagicItems:{type: selectedType, rarity: selectedRarity}"
 	class="item"
-	routerLink="/encyclopaedia/magic-items/{{item.id}}">
+	routerLink="/encyclopedia/magic-items/{{item.id}}">
 	<span class="rarity {{ item.rarity | toUnderscore }}">
 		<img class="img" src="assets/icons/{{ item.type | toUnderscore }}.png"/>
 		<span>{{ item.rarity }}</span>
