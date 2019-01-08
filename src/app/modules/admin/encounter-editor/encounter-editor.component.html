@@ -1,8 +1,4 @@
 <h1>{{ enemies.length }}</h1>
-<dnd-search
-	(onSelect)="addCreature($event)"
-	only="creatures">
-</dnd-search>
 
 <div *ngFor="let enemy of enemies">
 	<span>{{ enemy.name }}</span>
@@ -11,5 +7,9 @@
 		<i class="material-icons">close</i>
 	</span>
 </div>
-XP;:::::
+XP??
+
+<button (click)="showCreatures()" mat-flat-button color="primary">
+	Add creatures
+</button>
 <h1>{{ XP }}</h1>SDDS

@@ -15,7 +15,9 @@ import {
 	MatInputModule,
 	MatAutocompleteModule,
 	MatSelectModule,
-	MatDialogModule
+	MatDialogModule,
+	MatSnackBarModule,
+	MatSliderModule
 } from '@angular/material'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './modules/general/container/app.component'
@@ -53,6 +55,7 @@ import { HpBarComponent } from './shared/hp-bar/hp-bar.component'
 import { CharacterHeaderComponent } from './shared/character-header/character-header.component'
 import { EncounterEditorComponent } from './modules/admin/encounter-editor/encounter-editor.component'
 import { Routes } from 'src/app-routes';
+import { NpcAdderComponent } from './shared/npc-adder/npc-adder.component';
 
 @NgModule({
 	declarations: [
@@ -88,7 +91,8 @@ import { Routes } from 'src/app-routes';
 		NumberSliderComponent,
 		NumberPickerComponent,
 		HpBarComponent,
-		EncounterEditorComponent
+		EncounterEditorComponent,
+		NpcAdderComponent
 	],
 	imports: [
 		// Router
@@ -115,13 +119,16 @@ import { Routes } from 'src/app-routes';
 		MatListModule,
 		MatSelectModule,
 		MatSidenavModule,
+		MatSliderModule,
+		MatSnackBarModule,
 		MatProgressSpinnerModule,
 		MatTableModule,
 		MatToolbarModule
 	],
 	entryComponents: [
 		EnMagicItemComponent,
-		NumberPickerComponent
+		NumberPickerComponent,
+		NpcAdderComponent
 	],
 	providers: [LoggedInGuard],
 	bootstrap: [AppComponent]

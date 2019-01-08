@@ -10,6 +10,7 @@
 
 .result {
 	padding: 10px;
+	position: relative;
 
 	border-bottom: 1px solid $light;
 
@@ -38,6 +39,12 @@
 		&.creature 		{ background-color: $very_rare }
 		&.item 	{ background-color: $uncommon }
 		&.spell 		{ background-color: $legendary }
+	}
+
+	.add-btn {
+		position: absolute;
+		right: 10px;
+		top: 4px;
 	}
 }
 

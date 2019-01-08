@@ -1,0 +1,53 @@
+<div id="header">
+	<!-- Creature types -->
+	<div id="type-selector-{{ types.length }}" *ngFor="let types of creatureTypes">
+		<div class="option"
+			[ngClass]="{'active': selectedType == type }"
+			(click)="toggleSelectedType(type)"
+			*ngFor="let type of types">
+			<img class="img" src="assets/icons/creature-types/{{ type }}.png"/>
+		</div>
+	</div>
+	<!-- CR Slider -->
+	<div id="cr-slider-container">
+		<mat-slider
+			class="cr-slider"
+			thumbLabel
+			[(ngModel)]="selectedCR"
+			(change)="filter()"
+			(input)="filter2($event)"
+			[displayWith]="formatCRLabel"
+			min="-1"
+			[max]="33">
+		</mat-slider>
+	</div>
+	<!-- Filter -->
+	<mat-form-field id="search-input">
+		<input
+			[(ngModel)]="needle"
+			(keyup)="filter()"
+			matInput placeholder="Filter..."/>
+	</mat-form-field>
+</div>
+
+<div
+	class="creature"
+	(click)="showNPCDialog(creature)"
+	*ngFor="let creature of filtered | slice:0:n_displayed_results">
+	<span class="creature-cr">
+		{{ creature.challenge_rating }}
+	</span>
+	<span class="creature-icon">
+		<img class="img" src="assets/icons/creature-types/{{ creature.type }}_color.png"/>
+	</span>
+	<span class="creature-name">{{ creature.name }}</span>
+	<button (click)="addCreature($event, creature)"
+		class="add-btn"
+		mat-flat-button color="primary">
+		<i class="material-icons">plus_one</i>
+	</button>
+</div>
+<div id="more-results" *ngIf="filtered.length > n_displayed_results" (click)="moreResults()">
+	<span *ngIf="filtered.length - n_displayed_results == 1">One more result...</span>
+	<span *ngIf="filtered.length - n_displayed_results > 1">{{ filtered.length - n_displayed_results }} more results...</span>
+</div>
