@@ -1,6 +1,38 @@
 @import '~src/assets/style/colors';
 @import '~src/assets/style/mixins';
 
+#menu {
+	display: flex;
+	flex-direction: row;
+	.item {
+		flex-grow: 1;
+		background-color: $dark;
+		color: white;
+		cursor: pointer;
+		padding-top: 20px;
+		text-align: center;
+		&.active {
+			background-color: $primary;
+		}
+	}
+	#dialog-close-container {
+		padding: 0px !important;
+		margin: 0px !important;
+	}
+}
+
+#dialog-close {
+	width: 55px;
+	height: 55px;
+	background-color: $pink;
+	color: white;
+	cursor: pointer;
+	outline: none;
+	text-align: center;
+	border: none;
+}
+
+
 #filter-selector {
 	span {
 		display: inline-block;
@@ -24,13 +56,16 @@
 
 #header {
 	background-color: $dark;
+	height: 106px;
+	overflow: hidden;
 }
 
 #search-input {
 	width: 100%;
+	padding-top: 21px;
+	padding-bottom: 21px;
 	padding-left: 16px;
 	padding-right: 16px;
-	margin-top: -16px;
 	box-sizing: border-box;
 	color: $light;
 
@@ -50,6 +85,8 @@
 #cr-slider-container {
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-top: 25px;
+	padding-bottom: 25px;
 	.cr-slider {
 		width: 100%;
 	}

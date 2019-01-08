@@ -2,7 +2,7 @@ import * as _ from 'underscore'
 import { Component, OnInit, EventEmitter, Output } from '@angular/core'
 import { CreaturesService } from 'src/app/services/creatures.service'
 import { Constants } from 'src/app/lib/constants';
-import { MatSliderChange, MatDialog, MatSnackBar } from '@angular/material';
+import { MatSliderChange, MatDialog, MatSnackBar, MatSelectChange } from '@angular/material';
 import { EnCreatureComponent } from 'src/app/modules/encyclopedia/creature/en-creature.component';
 import { filter } from 'rxjs/operators';
 
@@ -13,11 +13,13 @@ import { filter } from 'rxjs/operators';
 })
 export class NpcAdderComponent implements OnInit {
 	
+	filterDisplay = null
+
 	filtered : Array<any>
 	creatures : Array<any>
-	creatureTypes : Array<Array<string>> = []
+	creatureTypes : Array<string> = Constants.CreatureTypes
 
-	MAX_RESULTS = 10
+	MAX_RESULTS = 14
 	MORE_RESULTS = 10
 	n_displayed_results = this.MAX_RESULTS
 
@@ -25,7 +27,10 @@ export class NpcAdderComponent implements OnInit {
 	selectedCR : number = -1
 	selectedType : string = ''
 
-	output : Function
+	added : Array<any>
+
+	onAdd : Function
+	onRemove : Function
 
 	constructor(
 		public snackBar : MatSnackBar,
@@ -34,23 +39,20 @@ export class NpcAdderComponent implements OnInit {
 	) {
 		this.creatures = creatures.getArray()
 		this.filtered = this.creatures
-		// Type filters
-		this.creatureTypes[0] = Constants.CreatureTypes.slice(0, 8)
-		this.creatureTypes[1] = Constants.CreatureTypes.slice(8, 15)
 	}
 	
 	ngOnInit() { }
 
 	addCreature($event : MouseEvent, enemy : any) {
 		$event.stopPropagation()
-		this.output(enemy)
+		this.onAdd(enemy)
 		let message = `Added "${enemy.name}"`
 		let snackBarRef = this.snackBar.open(message, 'Undo', {
 			duration: 2200
 		})
 		// Undo
 		snackBarRef.onAction().subscribe(() => {
-			console.log('NO UNDO REMOVE', enemy.name)
+			this.onRemove(enemy)
 		})
 	}
 	
@@ -72,32 +74,43 @@ export class NpcAdderComponent implements OnInit {
 		dialogRef.componentInstance.creature = creature
 	}
 
-	toggleSelectedType(value : string) {
-		this.selectedType = value == this.selectedType ? null : value
-		this.filter()
+	filterByName(needle : string) : void {
+		let _needle = needle.toLowerCase()
+		this.filter(creature => 
+			creature.name.toLowerCase().indexOf(_needle) !== -1
+		)
 	}
 
-	filter2($event : MatSliderChange) {
-		this.selectedCR = $event.value
-		this.filter()
+	toggleFilterDisplay(value : string) {
+		this.filterDisplay = this.filterDisplay == value ? null : value
 	}
 
-	filter() : void {
+	filterByCR($event : MatSliderChange) : void {
+		let needleCR = Constants.CreatureChallengeRatings[$event.value]
+		this.filter(creature => 
+			!needleCR || creature.challenge_rating == needleCR
+		)
+	}
+
+	filterByType($event : MatSelectChange) : void {
+		this.filter(creature => 
+			!$event.value || creature.type == $event.value)
+	}
+
+	private filter(condition : Function) : void {
 		let needle = this.needle.toLowerCase()
 		let needleCR = Constants.CreatureChallengeRatings[this.selectedCR]
 		this.n_displayed_results = this.MAX_RESULTS
 		this.filtered = _.filter(this.creatures, creature => {
 			let name = creature.name.toLowerCase()
 			let cr = creature.challenge_rating
-			return (
-				// Name contains needle
-				name.indexOf(needle) !== -1 &&
-				// CR is either "All" or matches creature
-				(!needleCR || cr == needleCR) &&
-				// Type is null or matches creature
-				(!this.selectedType || creature.type == this.selectedType)
-			)
+			return condition(creature)
 		})
+	}
+
+	getNumberInList(creature : any) : number {
+		let matches = _.where(this.added, { name: creature.name })
+		return matches.length
 	}
 
 }

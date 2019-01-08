@@ -1,31 +1,63 @@
-<div id="header">
-	<!-- Creature types -->
-	<div id="type-selector-{{ types.length }}" *ngFor="let types of creatureTypes">
-		<div class="option"
-			[ngClass]="{'active': selectedType == type }"
-			(click)="toggleSelectedType(type)"
-			*ngFor="let type of types">
-			<img class="img" src="assets/icons/creature-types/{{ type }}.png"/>
-		</div>
+<div id="menu">
+	<div class="item"
+		[ngClass]="{'active': filterDisplay == 'name'}"
+		(click)="toggleFilterDisplay('name')">
+		Name
 	</div>
+	<div class="item"
+		[ngClass]="{'active': filterDisplay == 'type'}"
+		(click)="toggleFilterDisplay('type')">
+		Type
+	</div>
+	<div class="item"
+		[ngClass]="{'active': filterDisplay == 'cr'}"
+		(click)="toggleFilterDisplay('cr')">
+		CR
+	</div>
+	<div id="dialog-close-container" mat-dialog-actions>
+		<button id="dialog-close" mat-dialog-close>
+			<i class="material-icons">close</i>
+		</button>
+	</div>
+</div>
+
+<div id="header" *ngIf="filterDisplay">
+	<!-- Creature types -->
+	<ng-container *ngIf="filterDisplay == 'type'">
+		<mat-form-field>
+			<mat-select (selectionChange)="filterByType($event)">
+				<mat-option [value]="type" *ngFor="let type of creatureTypes">
+					{{ type }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<!--<div id="type-selector-{{ types.length }}"
+			*ngFor="let types of creatureTypes">
+			<div class="option"
+				[ngClass]="{'active': selectedType == type }"
+				(click)="toggleSelectedType(type)"
+				*ngFor="let type of types">
+				<img class="img" src="assets/icons/creature-types/{{ type }}.png"/>
+			</div>
+		</div>-->
+	</ng-container>
 	<!-- CR Slider -->
-	<div id="cr-slider-container">
+	<div id="cr-slider-container" *ngIf="filterDisplay == 'cr'">
 		<mat-slider
 			class="cr-slider"
 			thumbLabel
 			[(ngModel)]="selectedCR"
-			(change)="filter()"
-			(input)="filter2($event)"
+			(change)="filterByCR($event)"
+			(input)="filterByCR($event)"
 			[displayWith]="formatCRLabel"
 			min="-1"
 			[max]="33">
 		</mat-slider>
 	</div>
 	<!-- Filter -->
-	<mat-form-field id="search-input">
-		<input
-			[(ngModel)]="needle"
-			(keyup)="filter()"
+	<mat-form-field id="search-input" *ngIf="filterDisplay == 'name'">
+		<input #needle
+			(keyup)="filterByName(needle.value)"
 			matInput placeholder="Filter..."/>
 	</mat-form-field>
 </div>
@@ -34,9 +66,9 @@
 	class="creature"
 	(click)="showNPCDialog(creature)"
 	*ngFor="let creature of filtered | slice:0:n_displayed_results">
-	<span class="creature-cr">
+	<!--<span class="creature-cr">
 		{{ creature.challenge_rating }}
-	</span>
+	</span>-->
 	<span class="creature-icon">
 		<img class="img" src="assets/icons/creature-types/{{ creature.type }}_color.png"/>
 	</span>
@@ -44,7 +76,7 @@
 	<button (click)="addCreature($event, creature)"
 		class="add-btn"
 		mat-flat-button color="primary">
-		<i class="material-icons">plus_one</i>
+		<span>{{ getNumberInList(creature) }}</span>
 	</button>
 </div>
 <div id="more-results" *ngIf="filtered.length > n_displayed_results" (click)="moreResults()">

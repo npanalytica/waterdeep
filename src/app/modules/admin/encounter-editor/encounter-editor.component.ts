@@ -13,15 +13,17 @@ import { NpcAdderComponent } from 'src/app/shared/npc-adder/npc-adder.component'
 })
 export class EncounterEditorComponent implements OnInit {
 
-	enemiesList : Array<any>
 	creatures : Array<any>
+
+	encounter = {
+		enemies: []
+	}
 
 	constructor(
 		public dialog : MatDialog,
 		public snackBar : MatSnackBar,
 		creatures : CreaturesService
 	) {
-		this.enemiesList = []
 		this.creatures = creatures.getList()
 	}
 	
@@ -36,37 +38,32 @@ export class EncounterEditorComponent implements OnInit {
 			height: '100%',
 			panelClass: 'no-padding'
 		})
-		dialogRef.componentInstance.output = function(creature) {
-			console.log('shit', creature)
+		dialogRef.componentInstance.added = this.encounter.enemies
+		dialogRef.componentInstance.onAdd = creature =>
+			this.encounter.enemies.push(creature)
+		dialogRef.componentInstance.onRemove = creature => {
+			let index = this.encounter.enemies.indexOf(creature)
+			this.encounter.enemies.splice(index, 1)
 		}
 	}
 
-	addCreature(enemy) {
-		console.log(enemy)
-		let message = `Added "${enemy.name}"`
-		this.snackBar.open(message, 'wtf?', {
-			duration: 2000
-		})
-		this.enemiesList.push(enemy)
-	}
-
 	get enemies() : Array<any> {
-		return _.uniq(this.enemiesList)
+		return _.uniq(this.encounter.enemies)
 	}
 
 	get XP() : number {
-		return Helpers.encounterXP(this.enemiesList)
+		return Helpers.encounterXP(this.encounter.enemies)
 	}
 
 	// Returns the number of a specific enemy present in an encounter
 	getEnemyCount(enemy : any) : number {
-		let matches = _.where(this.enemiesList, {name: enemy.name})
+		let matches = _.where(this.encounter.enemies, {name: enemy.name})
 		return matches.length
 	}
 	
 	removeEnemy(enemy : any) : void {
-		let index = this.enemiesList.indexOf(enemy)
-		this.enemiesList.splice(index, 1)
+		let index = this.encounter.enemies.indexOf(enemy)
+		this.encounter.enemies.splice(index, 1)
 	}
 
 }
