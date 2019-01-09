@@ -45,6 +45,7 @@ export class EncounterEditorComponent implements OnInit {
 			let index = this.encounter.enemies.indexOf(creature)
 			this.encounter.enemies.splice(index, 1)
 		}
+		dialogRef.componentInstance.onClose = () => dialogRef.close()
 	}
 
 	get enemies() : Array<any> {

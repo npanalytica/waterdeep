@@ -15,6 +15,8 @@ export class NpcAdderComponent implements OnInit {
 	
 	filterDisplay = null
 
+	showFilters = false
+
 	filtered : Array<any>
 	creatures : Array<any>
 	creatureTypes : Array<string> = Constants.CreatureTypes
@@ -31,6 +33,7 @@ export class NpcAdderComponent implements OnInit {
 
 	onAdd : Function
 	onRemove : Function
+	onClose : Function
 
 	constructor(
 		public snackBar : MatSnackBar,
@@ -42,6 +45,10 @@ export class NpcAdderComponent implements OnInit {
 	}
 	
 	ngOnInit() { }
+
+	onCloseDialog() : void {
+		this.onClose()
+	}
 
 	addCreature($event : MouseEvent, enemy : any) {
 		$event.stopPropagation()

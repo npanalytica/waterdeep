@@ -17,7 +17,8 @@ import {
 	MatSelectModule,
 	MatDialogModule,
 	MatSnackBarModule,
-	MatSliderModule
+	MatSliderModule,
+	MatTabsModule
 } from '@angular/material'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './modules/general/container/app.component'
@@ -123,6 +124,7 @@ import { NpcAdderComponent } from './shared/npc-adder/npc-adder.component';
 		MatSnackBarModule,
 		MatProgressSpinnerModule,
 		MatTableModule,
+		MatTabsModule,
 		MatToolbarModule
 	],
 	entryComponents: [

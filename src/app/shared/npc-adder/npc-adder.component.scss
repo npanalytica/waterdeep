@@ -1,93 +1,27 @@
 @import '~src/assets/style/colors';
 @import '~src/assets/style/mixins';
+@import '~src/assets/style/layout';
 
-#menu {
-	display: flex;
-	flex-direction: row;
-	.item {
-		flex-grow: 1;
-		background-color: $dark;
-		color: white;
-		cursor: pointer;
-		padding-top: 20px;
-		text-align: center;
-		&.active {
-			background-color: $primary;
-		}
-	}
-	#dialog-close-container {
-		padding: 0px !important;
-		margin: 0px !important;
+#toolbar {
+	z-index: 10000 !important;
+}
+
+#filters {
+	z-index: -1 !important;
+	margin-top: 0px;
+	transition: margin-top 0.2s;
+	.shown {
+		margin-top: -134px;
+		transition: margin-top 0.2s;
 	}
 }
 
-#dialog-close {
-	width: 55px;
-	height: 55px;
-	background-color: $pink;
-	color: white;
-	cursor: pointer;
-	outline: none;
-	text-align: center;
-	border: none;
-}
-
-
-#filter-selector {
-	span {
-		display: inline-block;
-		box-sizing: border-box;
-		width: 50%;
-		text-align: center;
-		padding: 10px;
-		color: darken($light, 15);
-		background-color: lighten($dark, 5);
-		font-weight: bold;
-	}
-	span.active {
-		background-color: $dark;
-		color: $light;
-	}
-}
-
-// Selectors
-#type-selector-8 { @include selector(8); }
-#type-selector-7 { @include selector(7); }
-
-#header {
-	background-color: $dark;
-	height: 106px;
-	overflow: hidden;
-}
-
-#search-input {
+.tab-content {
+	padding: 10px 20px;
 	width: 100%;
-	padding-top: 21px;
-	padding-bottom: 21px;
-	padding-left: 16px;
-	padding-right: 16px;
 	box-sizing: border-box;
-	color: $light;
-
-	::ng-deep .mat-form-field-label {
-		color: $light !important;
-	}
-
-	::ng-deep .mat-form-field-underline {
-		background-color: $light !important;
-	}
-
-	::ng-deep .mat-form-field-ripple {
-		background-color: $pink !important;
-	}
-}
-
-#cr-slider-container {
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 25px;
-	padding-bottom: 25px;
-	.cr-slider {
+	.slider {
+		margin-top: 17px;
 		width: 100%;
 	}
 }
