@@ -1,5 +1,10 @@
 @import '~src/assets/style/colors';
 
+#nav {
+	background: url('/assets/img/bg.png');
+	background-repeat: repeat;
+}
+
 .container {
 	display: flex;
 	flex-direction: column;

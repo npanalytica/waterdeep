@@ -136,3 +136,11 @@
 		background-color: $highlight;
 	}
 }
+
+@mixin badge($bg) {
+	@include borderRadius(6px);
+	color: white;
+	font-size: 8pt;
+	background-color: $bg;
+	padding: 4px 10px;
+}

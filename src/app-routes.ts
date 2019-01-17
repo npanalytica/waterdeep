@@ -15,6 +15,7 @@ import { EnWeaponsComponent } from './app/modules/encyclopedia/weapons/en-weapon
 import { EnCreaturesComponent } from './app/modules/encyclopedia/creatures/en-creatures.component'
 import { EnCreatureComponent } from './app/modules/encyclopedia/creature/en-creature.component'
 import { EncounterEditorComponent } from './app/modules/admin/encounter-editor/encounter-editor.component';
+import { AdminNPCEditorComponent } from './app/modules/admin/npc-editor/npc-editor.component';
 
 export class Routes {
 	static routes = [
@@ -30,7 +31,7 @@ export class Routes {
 		*********************************************/
 		{
 			path: '',
-			component: CharacterSheetComponent,
+			component: AdminNPCEditorComponent,
 			canActivate: [LoggedInGuard]
 		},
 		{

@@ -16,6 +16,7 @@ export class EncounterEditorComponent implements OnInit {
 	creatures : Array<any>
 
 	encounter = {
+		name: '',
 		enemies: []
 	}
 

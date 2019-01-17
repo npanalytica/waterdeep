@@ -1,15 +1,28 @@
-<h1>{{ enemies.length }}</h1>
+<!--<div id="encounter-xp">
+	<div class="value">{{ XP.toLocaleString() }}</div>
+	<div class="label">Encounter XP</div>
+</div>-->
 
-<div *ngFor="let enemy of enemies">
-	<span>{{ enemy.name }}</span>
-	<span>{{ getEnemyCount(enemy) }}</span>
-	<span (click)="removeEnemy(enemy)">
-		<i class="material-icons">close</i>
-	</span>
+<mat-form-field class="txt-input">
+	<input
+		[(ngModel)]="encounter.name"
+		autocomplete="off"
+		required
+		matInput placeholder="Encounter name..."/>
+</mat-form-field>
+
+<div id="enemies">
+	<div class="enemy" *ngFor="let enemy of enemies">
+		<button mat-icon-button color="warn" (click)="removeEnemy(enemy)">
+			<mat-icon>close</mat-icon>
+		</button>
+		<span class="name">{{ enemy.name }}</span>
+		<span class="count">{{ getEnemyCount(enemy) }}</span>
+	</div>
 </div>
-XP??
 
-<button (click)="showCreatures()" mat-flat-button color="primary">
-	Add creatures
-</button>
-<h1>{{ XP }}</h1>SDDS
+<div id="add-btn-container">
+	<button (click)="showCreatures()" mat-flat-button color="primary">
+		Add creatures
+	</button>
+</div>

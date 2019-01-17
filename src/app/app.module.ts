@@ -57,6 +57,8 @@ import { CharacterHeaderComponent } from './shared/character-header/character-he
 import { EncounterEditorComponent } from './modules/admin/encounter-editor/encounter-editor.component'
 import { Routes } from 'src/app-routes';
 import { NpcAdderComponent } from './shared/npc-adder/npc-adder.component';
+import { AdminNPCEditorComponent } from './modules/admin/npc-editor/npc-editor.component';
+import { TopMenuComponent } from './modules/general/top-menu/top-menu.component';
 
 @NgModule({
 	declarations: [
@@ -93,7 +95,9 @@ import { NpcAdderComponent } from './shared/npc-adder/npc-adder.component';
 		NumberPickerComponent,
 		HpBarComponent,
 		EncounterEditorComponent,
-		NpcAdderComponent
+		NpcAdderComponent,
+		AdminNPCEditorComponent,
+		TopMenuComponent
 	],
 	imports: [
 		// Router

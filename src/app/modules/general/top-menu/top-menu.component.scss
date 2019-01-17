@@ -1,0 +1,15 @@
+@import '~src/assets/style/colors';
+
+#header {
+	position: fixed;
+	top: 0px; left: 0px; right: 0px;
+	background-attachment: fixed;
+ 	background-position: center;
+	background: url('/assets/img/bg.png');
+	background-repeat: repeat;
+}
+
+#cover {
+	background-color: $primary;
+	height: 100%;
+}
