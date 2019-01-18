@@ -1,4 +1,8 @@
-<router-outlet></router-outlet>
+<div [style.paddingTop.px]="menu.padding">
+	start?
+	<router-outlet></router-outlet>
+</div>
+
 <!---<div class="container" [class.is-mobile]="mobileQuery.matches">
 	<mat-toolbar color="primary" class="toolbar">
 		<button mat-icon-button (click)="snav.toggle()">

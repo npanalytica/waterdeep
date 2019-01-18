@@ -21,7 +21,7 @@ import {
 	MatTabsModule
 } from '@angular/material'
 import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './modules/general/container/app.component'
+import { AppComponent } from './modules/general/container/app.container'
 import { PersonalAccountComponent } from './modules/character/account/personal-account.component'
 import { RouterModule, Router } from '@angular/router'
 import { ShopsComponent } from './modules/world/shops/shops.component'
@@ -59,6 +59,7 @@ import { Routes } from 'src/app-routes';
 import { NpcAdderComponent } from './shared/npc-adder/npc-adder.component';
 import { AdminNPCEditorComponent } from './modules/admin/npc-editor/npc-editor.component';
 import { TopMenuComponent } from './modules/general/top-menu/top-menu.component';
+import { MenuService } from './services/menu.service';
 
 @NgModule({
 	declarations: [
@@ -136,7 +137,11 @@ import { TopMenuComponent } from './modules/general/top-menu/top-menu.component'
 		NumberPickerComponent,
 		NpcAdderComponent
 	],
-	providers: [LoggedInGuard],
+	providers: [
+		LoggedInGuard, 
+		// Services
+		MenuService
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

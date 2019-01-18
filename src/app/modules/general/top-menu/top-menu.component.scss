@@ -1,6 +1,6 @@
 @import '~src/assets/style/colors';
 
-#header {
+#menu {
 	position: fixed;
 	top: 0px; left: 0px; right: 0px;
 	background-attachment: fixed;
@@ -9,7 +9,50 @@
 	background-repeat: repeat;
 }
 
+#header, #text, #icon, #menu-button, #options-button {
+	z-index: 11;
+}
+
+#menu-button, #options-button {
+	position: absolute;
+	top: 4px;
+	color: white;
+}
+
+#menu-button {
+	left: 0px;
+}
+
+#options-button {
+	right: 4px;
+}
+
+#header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: absolute;
+	bottom: 6px;
+}
+
+#icon {
+	height: 40px;
+	margin-right: 10px;
+}
+
+#text {
+	flex-grow: 1;
+	#title, #subtitle {
+		display: block;
+	}
+	#title { color: white; }
+	#subtitle { color: $light; }
+}
+
 #cover {
 	background-color: $primary;
 	height: 100%;
+	position: absolute;
+	left: 0px; top: 0px; right: 0px; bottom: 0px;
+	z-index: 10;
 }

@@ -1,26 +1,26 @@
-<div id="header"
-	[style.height.px]="menuHeight">
-	<div id="cover" [style.opacity]="coverOpacity">
-		{{ header }}
+<div id="menu"
+	[style.backgroundPosition]="coords"
+	[style.height.px]="menu.height">
+	<!-- Nav icons -->
+	<button mat-icon-button id="menu-button">
+		<mat-icon>menu</mat-icon>
+	</button>
+	<button (click)="fullScreen()" mat-icon-button id="options-button">
+		<mat-icon>more_vert</mat-icon>
+	</button>
+
+	<!-- Header -->
+	<div id="header" [style.left.px]="headerMargin">
+		<img
+			[style.height.px]="iconHeight"
+			[style.opacity]="iconOpacity"
+			id="icon" src="assets/game_icons/divination.png"/>
+		<div id="text">
+			<span id="title" [style.fontSize.px]="headerFontSize">{{ header }}</span>
+			<span id="subtitle" [style.fontSize.px]="subtitleFontSize">Add creatures</span>
+		</div>
 	</div>
+	
+	<div id="cover" [style.opacity]="coverOpacity"></div>
 </div>
-NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>NO MAMES
-<h1>{{ coverOpacity }}</h1>
+<h1>{{ margin }}</h1>
