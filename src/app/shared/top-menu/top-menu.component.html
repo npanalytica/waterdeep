@@ -2,15 +2,17 @@
 	[style.backgroundPosition]="coords"
 	[style.height.px]="menu.height">
 	<!-- Nav icons -->
-	<button mat-icon-button id="menu-button">
+	<button mat-icon-button id="menu-button" (click)="toggleSidenav()">
 		<mat-icon>menu</mat-icon>
 	</button>
-	<button (click)="fullScreen()" mat-icon-button id="options-button">
+	<button mat-icon-button id="options-button" (click)="openFull()">
 		<mat-icon>more_vert</mat-icon>
 	</button>
 
 	<!-- Header -->
-	<div id="header" [style.left.px]="headerMargin">
+	<div id="header"
+		[style.bottom.px]="headerBottomMargin"
+		[style.left.px]="headerLeftMargin">
 		<img
 			[style.height.px]="iconHeight"
 			[style.opacity]="iconOpacity"

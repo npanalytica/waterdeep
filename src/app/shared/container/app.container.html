@@ -1,7 +1,18 @@
-<div [style.paddingTop.px]="menu.padding">
-	start?
-	<router-outlet></router-outlet>
-</div>
+<mat-sidenav-container class="sidenav-container">
+	<mat-sidenav #snav
+		mode="over"
+		position="start"
+		[fixedInViewport]="mobileQuery.matches">
+		<div id="side-nav-container">
+			<side-nav></side-nav>
+		</div>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<div [style.paddingTop.px]="menu.padding">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>
 
 <!---<div class="container" [class.is-mobile]="mobileQuery.matches">
 	<mat-toolbar color="primary" class="toolbar">

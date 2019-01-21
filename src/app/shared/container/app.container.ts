@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit, ViewChild } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { SessionService } from 'src/app/services/session.service';
 import { MenuService } from 'src/app/services/menu.service';
@@ -8,8 +8,9 @@ import { MenuService } from 'src/app/services/menu.service';
 	templateUrl: './app.container.html',
 	styleUrls: ['./app.container.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
+	@ViewChild('snav') snav
 	session : SessionService
 	loaded : boolean = false
 	mobileQuery : MediaQueryList
@@ -28,6 +29,10 @@ export class AppComponent {
 		this.mobileQuery = media.matchMedia('(max-width: 1200px)')
 		this._mobileQueryListener = () => changeDetectorRef.detectChanges()
 		this.mobileQuery.addListener(this._mobileQueryListener)
+	}
+
+	ngOnInit() : void {
+		this.menu.setSideNavRef(this.snav)
 	}
 
 	ngOnDestroy() : void {

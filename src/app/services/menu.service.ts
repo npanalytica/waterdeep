@@ -1,3 +1,4 @@
+import { MatSidenav } from '@angular/material';
 
 export class MenuService {
 	
@@ -5,10 +6,15 @@ export class MenuService {
 	MAX_HEIGHT = 140
 	height : number
 	padding : number
+	sideNav : MatSidenav
 
 	constructor() {
 		this.height = this.MAX_HEIGHT
 		this.padding = this.MAX_HEIGHT
+	}
+
+	setSideNavRef(ref : MatSidenav) : void {
+		this.sideNav = ref
 	}
 
 	// Updates the menu height if the new value will not exceed MIN_HEIGHT
