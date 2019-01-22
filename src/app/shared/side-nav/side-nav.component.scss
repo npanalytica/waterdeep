@@ -1,11 +1,5 @@
 @import '~src/assets/style/colors';
 
-$bg : 		#1c1f29;
-$mid : 		#2b303f;
-$border : 	#242935;
-$font: 		#a8b1c0;
-$dull: 		#657994;
-
 #container {
 	position: absolute;
 	left: 0px; right: 0px; top: 0px; bottom: 0px;
@@ -22,6 +16,7 @@ $FIXED-MENU-SIZE: 60px;
 	bottom: 0px;
 	width: $FIXED-MENU-SIZE;
 	background-color: $bg;
+	z-index: 1000000;
 }
 
 #sliding-menu {
@@ -78,7 +73,7 @@ $FIXED-MENU-SIZE: 60px;
 	width: 3px;
 	height: 0%;
 	transition: height 0.2s, top 0.2s;
-	background-color: $primary-light;
+	background-color: $primary;
 }
 
 .group.active {

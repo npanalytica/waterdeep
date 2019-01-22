@@ -1,28 +1,24 @@
-<div id="menu"
-	[style.backgroundPosition]="coords"
-	[style.height.px]="menu.height">
-	<!-- Nav icons -->
-	<button mat-icon-button id="menu-button" (click)="toggleSidenav()">
+<mat-toolbar #toolbar id="toolbar">
+	<button mat-icon-button (click)="toggleSideNav()">
 		<mat-icon>menu</mat-icon>
 	</button>
-	<button mat-icon-button id="options-button" (click)="openFull()">
+	<div id="image">
+		<img src="assets/game_icons/{{menu.icon}}.png"/>
+	</div>
+	<span id="header">{{ menu.header }}</span>
+	<!-- This fills the remaining space of the current row -->
+	<span class="filler"></span>
+	<button mat-icon-button [matMenuTriggerFor]="appMenu" *ngIf="menu.actions">
 		<mat-icon>more_vert</mat-icon>
 	</button>
+</mat-toolbar>
 
-	<!-- Header -->
-	<div id="header"
-		[style.bottom.px]="headerBottomMargin"
-		[style.left.px]="headerLeftMargin">
-		<img
-			[style.height.px]="iconHeight"
-			[style.opacity]="iconOpacity"
-			id="icon" src="assets/game_icons/divination.png"/>
-		<div id="text">
-			<span id="title" [style.fontSize.px]="headerFontSize">{{ header }}</span>
-			<span id="subtitle" [style.fontSize.px]="subtitleFontSize">Add creatures</span>
-		</div>
-	</div>
-	
-	<div id="cover" [style.opacity]="coverOpacity"></div>
-</div>
-<h1>{{ margin }}</h1>
+<mat-menu #appMenu="matMenu">
+	<button *ngFor="let action of menu.actions" 
+		class="nav-action-button"
+		mat-menu-item
+		(click)="performAction(action)">
+		<mat-icon class="icon">{{ action.icon }}</mat-icon>
+		<span class="name">{{ action.name }}</span>
+	</button>
+</mat-menu>

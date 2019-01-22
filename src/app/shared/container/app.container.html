@@ -1,104 +1,15 @@
-<mat-sidenav-container class="sidenav-container">
-	<mat-sidenav #snav
-		mode="over"
-		position="start"
-		[fixedInViewport]="mobileQuery.matches">
-		<div id="side-nav-container">
-			<side-nav></side-nav>
-		</div>
-	</mat-sidenav>
-	<mat-sidenav-content>
-		<div [style.paddingTop.px]="menu.padding">
-			<router-outlet></router-outlet>
-		</div>
-	</mat-sidenav-content>
-</mat-sidenav-container>
-
-<!---<div class="container" [class.is-mobile]="mobileQuery.matches">
-	<mat-toolbar color="primary" class="toolbar">
-		<button mat-icon-button (click)="snav.toggle()">
-			<mat-icon>menu</mat-icon>
-		</button>
-		<h2 class="app-name"><span>DnD, Midgard</span> <i>{{ session.user }}</i></h2>
-		<div style="flex: 1 1 auto;"></div>
-		<button mat-icon-button routerLink="/search">
-			<mat-icon>search</mat-icon>
-		</button>
-		<button mat-icon-button (click)="e_snav.toggle()">
-			<mat-icon>class</mat-icon>
-		</button>
-	</mat-toolbar>
-
-	<mat-sidenav-container class="sidenav-container"
-			[style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-		
-		<mat-sidenav #snav mode="over" position="start"
-			(click)="snav.toggle()"
-			[fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-			<mat-nav-list>
-				<a class="nav-item" routerLink="inventory">
-					<i class="material-icons">account_balance</i>
-					<span>Inventario</span>
-				</a>
-				<a class="nav-item" routerLink="/">
-					<i class="material-icons">account_box</i>
-					<span>Balance</span>
-				</a>
-				<a class="nav-item" routerLink="corporate-account">
-					<i class="material-icons">account_balance</i>
-					<span>Cuenta corporativa</span>
-				</a>
-				<a class="nav-item" routerLink="contacts">
-					<i class="material-icons">contacts</i>
-					<span>Contactos</span>
-				</a>
-				<a class="nav-item" routerLink="maps">
-					<i class="material-icons">terrain</i>
-					<span>Mapas</span>
-				</a>
-				<a class="nav-item" routerLink="things-to-do">
-					<i class="material-icons">directions_bike</i>
-					<span>Cosas que hacer</span>
-				</a>
-				<a class="nav-item" routerLink="shops">
-					<i class="material-icons">credit_card</i>
-					<span>Tiendas</span>
-				</a>
-				<a class="nav-item" routerLink="quests">
-					<i class="material-icons">calendar_today</i>
-					<span>Quests y XP</span>
-				</a>
-			</mat-nav-list>
+<div id="container">
+	<mat-sidenav-container class="full-height">
+		<mat-sidenav #snav mode="over"position="start">
+			<div id="side-nav-container">
+				<side-nav></side-nav>
+			</div>
 		</mat-sidenav>
-
-
-		<mat-sidenav #e_snav mode="over" position="end"
-			(click)="e_snav.toggle()"
-			[fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-			<mat-nav-list>
-				<a class="nav-item" routerLink="/encyclopedia/spells">
-					<i class="material-icons">offline_bolt</i>
-					<span>Spells</span>
-				</a>
-				<a class="nav-item" routerLink="/encyclopedia/magic-items">
-					<i class="material-icons">offline_bolt</i>
-					<span>Items mágicos</span>
-				</a>
-				<a class="nav-item" routerLink="/encyclopedia/beastiary">
-					<i class="material-icons">offline_bolt</i>
-					<span>Bestiario</span>
-				</a>
-				<a class="nav-item" routerLink="/encyclopedia/weapons">
-					<i class="material-icons">polymer</i>
-					<span>Armas</span>
-				</a>
-			</mat-nav-list>
-		</mat-sidenav>
-
-		<mat-sidenav-content>
-			<router-outlet></router-outlet>
+		<mat-sidenav-content class="full-height">
+			<div class="full-height" id="content">
+				<top-menu></top-menu>
+				<router-outlet></router-outlet>
+			</div>
 		</mat-sidenav-content>
 	</mat-sidenav-container>
 </div>
--->
-

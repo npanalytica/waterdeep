@@ -1,57 +1,48 @@
 @import '~src/assets/style/colors';
+@import '~src/assets/style/mixins';
 
-#menu {
+$TOOLBAR-HEIGHT: 64px;
+$TOOLBAR-IMAGE-SIZE : 40px;
+
+#toolbar {
 	position: fixed;
+	background-color: $mid;
+	color: $font;
 	top: 0px; left: 0px; right: 0px;
-	background-attachment: fixed;
- 	background-position: center;
-	background: url('/assets/img/bg.png');
-	background-repeat: repeat;
+	min-height: $TOOLBAR-HEIGHT;
+	padding-left: 8px;
 }
 
-#header, #text, #icon, #menu-button, #options-button {
-	z-index: 11;
-}
-
-#menu-button, #options-button {
-	position: absolute;
-	top: 4px;
-	color: white;
-}
-
-#menu-button {
-	left: 0px;
-}
-
-#options-button {
-	right: 4px;
+#image {
+	@include borderRadius($TOOLBAR-IMAGE-SIZE);
+	min-height: $TOOLBAR-IMAGE-SIZE;
+	min-width: $TOOLBAR-IMAGE-SIZE;
+	background-color: $primary;
+	text-align: center;
+	box-sizing: border-box;
+	padding-top: 6px;
+	margin-left: 8px;
+	margin-right: 8px;
+	img {
+		height: $TOOLBAR-IMAGE-SIZE * 0.7;
+	}
 }
 
 #header {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	position: absolute;
+	margin-left: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
-#icon {
-	height: 40px;
-	margin-right: 10px;
+.filler {
+	flex: 1 1 auto;
 }
 
-#text {
-	flex-grow: 1;
-	#title, #subtitle {
-		display: block;
-	}
-	#title { color: white; }
-	#subtitle { color: $light; }
+.nav-action-button {
+	padding-left: 8px;
 }
 
-#cover {
-	background-color: $primary;
-	height: 100%;
-	position: absolute;
-	left: 0px; top: 0px; right: 0px; bottom: 0px;
-	z-index: 10;
+.nav-action-button > .icon {
+	margin-right: 8px;
 }

@@ -1,16 +1,8 @@
 @import '~src/assets/style/colors';
+@import '~src/assets/style/mixins';
+@import './../top-menu/top-menu.component.scss';
 
-#nav {
-	background: url('/assets/img/bg.png');
-	background-repeat: repeat;
-}
-
-#side-nav-container {
-	min-width: 300px;
-	width: 100%;
-}
-
-.container {
+#container {
 	display: flex;
 	flex-direction: column;
 	position: absolute;
@@ -19,54 +11,16 @@
 	left: 0;
 	right: 0;
 }
-  
-.is-mobile .toolbar {
-	position: fixed;
-	z-index: 2;
+
+#content {
+	padding-top: $TOOLBAR-HEIGHT;
 }
-  
-h2.app-name {
-	margin-left: 8px;
-	span, i {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	i {
-		margin-left: 5px;
-		font-size: 12pt;
-		color: $light;
-	}
+
+.full-height {
+	height: 100%;
 }
-  
-.sidenav-container {
-	flex: 1;
+
+#side-nav-container {
+	min-width: 300px;
 	width: 100%;
-}
-  
-.is-mobile .sidenav-container {
-	flex: 1 0 auto;
-}
-
-.nav-item {
-	display: block;
-	padding: 10px 20px;
-	i, span {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	i {
-		color: $medium;
-		margin-right: 10px;
-	}
-}
-
-#search-container {
-	z-index: 100;
-	position: absolute;
-	left: 0px;
-	right: 0px;
-	top: 0px;
-	bottom: 0px;
-	background-color: $light;
-	opacity: 0.6;
 }

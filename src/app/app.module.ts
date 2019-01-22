@@ -18,89 +18,40 @@ import {
 	MatDialogModule,
 	MatSnackBarModule,
 	MatSliderModule,
-	MatTabsModule
+	MatTabsModule,
+	MatMenuModule
 } from '@angular/material'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './shared/container/app.container'
-import { PersonalAccountComponent } from './modules/character/account/personal-account.component'
 import { RouterModule, Router } from '@angular/router'
-import { ShopsComponent } from './modules/world/shops/shops.component'
 // Firebase
 import { AngularFireModule } from 'angularfire2'
 import { AngularFireDatabaseModule } from 'angularfire2/database'
 import { AngularFireAuthModule } from 'angularfire2/auth'
 import { environment } from 'src/environments/environment'
 import { ArraifyPipe, ToTextPipe, DamageToCharPipe, ToUnderscorePipe, FromUnderscorePipe, FormatBonusPipe } from 'src/lib/pipes'
-import { ShopComponent } from './modules/world/shop/shop.component'
-import { IconRarityComponent } from './shared/icon-rarity/icon-rarity.component'
-import { EnMagicItemsComponent } from './modules/encyclopedia/magic-items/en-magic-items.component'
-import { EnMagicItemComponent } from './modules/encyclopedia/magic-item/en-magic-item.component'
-import { EnSpellsComponent } from './modules/encyclopedia/spells/en-spells.component'
-import { EnSpellComponent } from './modules/encyclopedia/spell/en-spell.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { EnWeaponsComponent } from './modules/encyclopedia/weapons/en-weapons.component'
-import { MagicItemsFilterPipe } from './modules/encyclopedia/magic-items/en-magic-items.filter'
-import { EnCreaturesComponent } from './modules/encyclopedia/creatures/en-creatures.component'
-import { EnCreatureComponent } from './modules/encyclopedia/creature/en-creature.component'
-import { CreaturesFilterPipe } from './modules/encyclopedia/creatures/en-creatures.filter'
-import { StatBlockComponent } from './shared/stat-block/stat-block.component'
-import { SearchComponent } from './modules/general/search/search.component'
-import { SignInComponent } from './modules/general/sign-in/sign-in.component'
-import { LoggedInGuard } from './guards/logged-in-guard.service'
-import { CharacterInventoryComponent } from './modules/character/inventory/character-inventory.component'
-import { CharacterEditComponent } from './modules/character/edit/character-edit.component'
-import { CharacterSheetComponent } from './modules/character/sheet/character-sheet.component'
-import { NumberSliderComponent } from './shared/number-slider/number-slider.component'
-import { NumberPickerComponent } from './shared/number-picker/number-picker.component'
-import { HpBarComponent } from './shared/hp-bar/hp-bar.component'
-import { CharacterHeaderComponent } from './shared/character-header/character-header.component'
-import { EncounterEditorComponent } from './modules/admin/encounter-editor/encounter-editor.component'
 import { Routes } from 'src/app-routes'
-import { NpcAdderComponent } from './shared/npc-adder/npc-adder.component'
-import { AdminNPCEditorComponent } from './modules/admin/npc-editor/npc-editor.component'
 import { TopMenuComponent } from './shared/top-menu/top-menu.component'
 import { MenuService } from './services/menu.service';
-import { SideNavComponent } from './shared/side-nav/side-nav.component'
+import { CharacterSheetComponent } from './modules/character-sheet/character-sheet.component';
+import { SideNavComponent } from './shared/side-nav/side-nav.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		PersonalAccountComponent,
-		ShopsComponent,
 		// Pipes
 		ArraifyPipe,
 		ToTextPipe,
 		ToUnderscorePipe,
 		FromUnderscorePipe,
 		DamageToCharPipe,
-		CreaturesFilterPipe,
-		MagicItemsFilterPipe,
 		FormatBonusPipe,
-		// Components
-		ShopComponent,
-		IconRarityComponent,
-		EnMagicItemsComponent,
-		EnMagicItemComponent,
-		EnSpellsComponent,
-		EnSpellComponent,
-		EnWeaponsComponent,
-		EnCreaturesComponent,
-		EnCreatureComponent,
-		StatBlockComponent,
-		SearchComponent,
-		SignInComponent,
-		CharacterInventoryComponent,
-		CharacterHeaderComponent,
-		CharacterEditComponent,
 		CharacterSheetComponent,
-		NumberSliderComponent,
-		NumberPickerComponent,
-		HpBarComponent,
-		EncounterEditorComponent,
-		NpcAdderComponent,
-		AdminNPCEditorComponent,
-		TopMenuComponent,
-		SideNavComponent
+		// Components
+		SideNavComponent,
+		CharacterSheetComponent,
+		TopMenuComponent
 	],
 	imports: [
 		// Router
@@ -125,6 +76,7 @@ import { SideNavComponent } from './shared/side-nav/side-nav.component'
 		MatIconModule,
 		MatInputModule,
 		MatListModule,
+		MatMenuModule,
 		MatSelectModule,
 		MatSidenavModule,
 		MatSliderModule,
@@ -134,14 +86,8 @@ import { SideNavComponent } from './shared/side-nav/side-nav.component'
 		MatTabsModule,
 		MatToolbarModule
 	],
-	entryComponents: [
-		EnMagicItemComponent,
-		NumberPickerComponent,
-		NpcAdderComponent
-	],
+	entryComponents: [],
 	providers: [
-		LoggedInGuard, 
-		// Services
 		MenuService
 	],
 	bootstrap: [AppComponent]

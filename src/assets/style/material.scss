@@ -1,0 +1,22 @@
+@import '~@angular/material/theming';
+@import './palettes';
+
+@include mat-core();
+
+$primary: mat-palette($primary-palette);
+$accent:  mat-palette($highlight-palette);
+$warn:    mat-palette($warn-palette);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+// Overrides
+
+.mat-form-field-underline {
+	background-color: $light !important;
+}
+
+.white.mat-progress-spinner circle, .white.mat-spinner circle {
+	stroke:white !important;
+}
