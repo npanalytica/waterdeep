@@ -77,70 +77,11 @@
 	}
 }
 
-@mixin selector($nItems) {
-	background-color: $dark;
-	width: 100%;
-	.option {
-		display: inline-block;
-		box-sizing: border-box;
-		width: (100 / $nItems) * 1%;
-		text-align: center;
-		padding: 10px;
-		img {
-			height: 28px;
-		}
-		&.active {
-			background-color: $pink;
-			.circle { background-color: $pink !important; }
-		}
-		.circle {
-			@include borderRadius(28px);
-			background-color: $pink;
-			display: inline-block;
-			height: 28px;
-			width: 28px;
-			box-sizing: border-box;
-			padding-top: 5px;
-			text-align: center;
-			font-size: 10pt;
-			font-weight: bold;
-			color: $light;
-		}
-	}
-}
-
-@mixin ribbon($nItems, $highlight: $pink) {
-	$width: 100 / $nItems * 1%;
-	background-color: lighten($dark, 10);
-	.entry {
-		box-sizing: border-box;
-		width: $width;
-		text-align: center;
-		display: inline-block;
-		padding: 6px;
-		span, img {
-			display: inline-block;
-			vertical-align: middle;
-		}
-		img {
-			height: 24px;
-			margin-right: 6px;
-		}
-		span {
-			color: $light;
-			font-weight: bold;
-		}
-	}
-
-	.entry.active {
-		background-color: $highlight;
-	}
-}
-
 @mixin badge($bg) {
-	@include borderRadius(6px);
+	@include borderRadius(12px);
 	color: white;
 	font-size: 8pt;
 	background-color: $bg;
-	padding: 4px 10px;
+	padding: 4px 8px;
+	text-align: center;
 }

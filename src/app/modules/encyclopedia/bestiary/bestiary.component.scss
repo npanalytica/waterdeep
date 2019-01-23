@@ -1,0 +1,82 @@
+@import '~src/assets/style/colors';
+@import '~src/assets/style/mixins';
+
+.creature {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 20px;
+	border-bottom: 1px solid $light-border;
+	cursor: pointer;
+}
+
+.creature > .icon {
+	@include ball(40px);
+	background-color: $primary-dark;
+	margin-right: 20px;
+	text-align: center;
+	img { height: 22px; margin-top: 8px; }
+}
+
+.creature > .data {
+	flex-grow: 1;
+}
+
+.creature > .data > .name {
+	color: $dull;
+	font-size: 14pt;
+	margin-bottom: 12px;
+}
+
+.creature > .data > .secondary {
+	font-size: 10pt;
+	color: $font;
+}
+
+.creature > .data > .secondary > span {
+	margin-right: 6px;
+	&:last-child { margin-right: none; }
+	&.type {
+		@include badge($dull);
+		text-transform: capitalize;
+	}
+	&.ac { @include badge($highlight); }
+	&.size { @include badge($gold); }
+	&.alignment { @include badge($primary); }
+}
+
+#search-bar {
+	position: fixed;
+	bottom: -80px; left: 0px; right: 0px;
+	transition: bottom 0.2s;
+	background-color: $light-border;
+	border-top: 1px solid darken($light-border, 5);
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.input{
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	input {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+#search-bar.active {
+	bottom: 0px;
+	transition: bottom 0.2s;
+}
+
+#search-bar > #search-button {
+	@include ball(42px);
+	position: absolute;
+	right: 20px;
+	top: -80px;
+	background-color: $primary-dark;
+	color: white;
+	cursor: pointer;
+	font-size: 18pt;
+}

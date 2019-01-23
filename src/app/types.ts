@@ -1,4 +1,8 @@
 
+export interface ICreature {
+	name : string
+}
+
 export interface INavMenuAction {
 	icon  : string // A material icon string
 	name  : string // The text to be displayed

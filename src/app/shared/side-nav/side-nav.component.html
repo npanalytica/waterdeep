@@ -13,7 +13,9 @@
 				<mat-icon class="icon">arrow_back_ios</mat-icon>
 				<span class="name">{{ selectedGroup?.name }}</span>
 			</div>
-			<div class="group" *ngFor="let item of selectedGroup?.items">
+			<div class="group" *ngFor="let item of selectedGroup?.items"
+				(click)="menu.toggleSideNav()"
+				[routerLink]="item.url">
 				<mat-icon class="icon">{{ item.icon }}</mat-icon>
 				<span class="name">{{ item.name }}</span>
 			</div>

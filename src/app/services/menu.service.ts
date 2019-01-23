@@ -1,5 +1,6 @@
-import { MatSidenav } from '@angular/material';
+import { MatSidenav, MatSidenavContent } from '@angular/material';
 import { INavMenuAction } from '../types';
+import { ExtendedScrollToOptions } from '@angular/cdk/scrolling';
 
 export class MenuService {
 	
@@ -7,6 +8,7 @@ export class MenuService {
 	header : string
 	icon : string
 	sideNav : MatSidenav // A reference to the side navigation element
+	mainView : MatSidenavContent
 	actions : Array<INavMenuAction>
 	
 	constructor() {
@@ -18,8 +20,16 @@ export class MenuService {
 		this.sideNav = element
 	}
 
+	setMainView(element : MatSidenavContent) : void {
+		this.mainView = element
+	}
+
 	toggleSideNav() : void {
 		if(this.sideNav) this.sideNav.toggle()
+	}
+
+	scrollToTop() : void {
+		this.mainView.scrollTo({ top : 0})
 	}
 	
 }

@@ -1,3 +1,4 @@
+import * as _ from 'underscore'
 import { Pipe, PipeTransform } from '@angular/core'
 
 @Pipe({ name: 'arraify' })
@@ -15,6 +16,22 @@ export class ArraifyPipe implements PipeTransform {
 export class ToTextPipe implements PipeTransform {
 	transform(id : string) : any {
 		return id.split('_').join(' ')
+	}
+}
+
+
+@Pipe({ name: 'toInitials' })
+export class ToInitialsPipe implements PipeTransform {
+	transform(text : string) : any {
+		return _.map(text.split(' '), item => item[0]).join('').toUpperCase()
+	}
+}
+
+
+@Pipe({ name: 'maxLength' })
+export class MaxLengthPipe implements PipeTransform {
+	transform(text : string, max: number, repl: 'string') : any {
+		return text.length > max ? repl : text
 	}
 }
 

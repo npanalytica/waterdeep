@@ -29,13 +29,15 @@ import { AngularFireModule } from 'angularfire2'
 import { AngularFireDatabaseModule } from 'angularfire2/database'
 import { AngularFireAuthModule } from 'angularfire2/auth'
 import { environment } from 'src/environments/environment'
-import { ArraifyPipe, ToTextPipe, DamageToCharPipe, ToUnderscorePipe, FromUnderscorePipe, FormatBonusPipe } from 'src/lib/pipes'
+import { ArraifyPipe, ToTextPipe, DamageToCharPipe, ToUnderscorePipe, FromUnderscorePipe, FormatBonusPipe, ToInitialsPipe, MaxLengthPipe } from 'src/lib/pipes'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Routes } from 'src/app-routes'
 import { TopMenuComponent } from './shared/top-menu/top-menu.component'
-import { MenuService } from './services/menu.service';
-import { CharacterSheetComponent } from './modules/character-sheet/character-sheet.component';
-import { SideNavComponent } from './shared/side-nav/side-nav.component';
+import { MenuService } from './services/menu.service'
+import { CharacterSheetComponent } from './modules/character-sheet/character-sheet.component'
+import { SideNavComponent } from './shared/side-nav/side-nav.component'
+import { BestiaryComponent } from './modules/encyclopedia/bestiary/bestiary.component';
+import { LoaderComponent } from './shared/loader/loader.component'
 
 @NgModule({
 	declarations: [
@@ -43,15 +45,19 @@ import { SideNavComponent } from './shared/side-nav/side-nav.component';
 		// Pipes
 		ArraifyPipe,
 		ToTextPipe,
+		ToInitialsPipe,
 		ToUnderscorePipe,
 		FromUnderscorePipe,
 		DamageToCharPipe,
 		FormatBonusPipe,
+		MaxLengthPipe,
 		CharacterSheetComponent,
 		// Components
 		SideNavComponent,
 		CharacterSheetComponent,
-		TopMenuComponent
+		TopMenuComponent,
+		BestiaryComponent,
+		LoaderComponent
 	],
 	imports: [
 		// Router

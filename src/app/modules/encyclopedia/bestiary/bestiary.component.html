@@ -1,0 +1,43 @@
+<loader *ngIf="loading"></loader>
+<div *ngIf="!loading">
+	<div class="creature" *ngFor="let creature of filtered">
+		<div class="icon">
+			<img src="assets/game_icons/white/{{getIcon(creature.type)}}.png"/>
+		</div>
+		<div class="data">
+			<div class="name">{{ creature.name }}</div>
+			<div class="secondary">
+				<span class="type"
+					(click)="filterBy('type', creature.type)">
+					{{ creature.type }}
+				</span>
+				<span class="type"
+					(click)="filterBy('subtype', creature.subtype)"
+					*ngIf="creature.subtype">
+					{{ creature.subtype }}
+				</span>
+				<span class="size"
+					(click)="filterBy('size', creature.size)">
+					{{ creature.size }}
+				</span>
+				<span class="alignment"
+					(click)="filterBy('alignment', creature.alignment)">
+					{{ creature.alignment| toInitials | maxLength:2:'X'}}</span>
+				<span class="ac"
+					(click)="filterBy('challenge_rating', creature.challenge_rating)">
+					CR {{ creature.challenge_rating }}
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="search-bar" [class.active]="txtFilterVisible">
+	<mat-form-field class="input">
+		<input #filterInput matInput placeholder="" autocomplete="off" />
+	</mat-form-field>
+	<button mat-icon-button color="primary" id="search-button" (click)="toggleTxtFilter()">
+		<mat-icon class="icon" [inline]="true">search</mat-icon>
+	</button>
+</div>

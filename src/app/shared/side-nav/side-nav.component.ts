@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { NavGroups } from './nav-items'
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
 	selector: 'side-nav',
@@ -12,7 +13,7 @@ export class SideNavComponent implements OnInit {
 
 	//selectedGroup = NavGroups[0]
 
-	constructor() { }
+	constructor(public menu : MenuService) { }
 	
 	ngOnInit() { }
 
